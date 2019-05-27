@@ -10,4 +10,66 @@
 </ion-header>
 
 <ion-content>
+  <form
+    class="ion-padding"
+    [formGroup]="joinForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div>
+      <ion-item>
+        <ion-label position="floating">
+          Nome
+        </ion-label>
+        <ion-input
+          autofocus
+          clearInput
+          formControlName="name"
+          maxlength="30"
+          required
+        ></ion-input>
+      </ion-item>
+      <app-input-message [field]="joinForm.get('name')"></app-input-message>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label position="floating">
+          Email
+        </ion-label>
+        <ion-input
+          clearInput
+          formControlName="email"
+          type="email"
+          required
+        ></ion-input>
+      </ion-item>
+      <app-input-message [field]="joinForm.get('email')"></app-input-message>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label position="floating">
+          Senha
+        </ion-label>
+        <ion-input
+          clearInput
+          formControlName="password"
+          minlength="6"
+          type="password"
+          required
+        ></ion-input>
+      </ion-item>
+      <app-input-message [field]="joinForm.get('password')"></app-input-message>
+    </div>
+
+    <ion-button type="submit" [disabled]="!joinForm.valid">
+      Enviar
+    </ion-button>
+
+    <ion-note class="ion-text-center ion-padding-top">
+      Ao tocar em "Enviar", você concorda com nossos
+      <a routerLink="/about/terms">termos de serviço</a> e nossa
+      <a routerLink="/about/privacy">política de privacidade</a>.
+    </ion-note>
+  </form>
 </ion-content>

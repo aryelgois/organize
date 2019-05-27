@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-join',
@@ -7,10 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JoinPage implements OnInit {
 
+  joinForm = new FormGroup({
+    name: new FormControl('', [
+      Validators.maxLength(30),
+      Validators.required,
+    ]),
+    email: new FormControl('', [
+      Validators.email,
+      Validators.required,
+    ]),
+    password: new FormControl('', [
+      Validators.minLength(6),
+      Validators.required,
+    ]),
+  });
+
   constructor(
   ) {}
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    if (this.joinForm.invalid) {
+      return;
+    }
+
+    console.log(this.joinForm.value);
   }
 
 }
