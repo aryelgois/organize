@@ -18,6 +18,11 @@ export class AppComponent {
       icon: 'home',
     },
     {
+      title: 'Minhas listas',
+      url: '/lists',
+      icon: 'list-box',
+    },
+    {
       title: 'List',
       url: '/list',
       icon: 'list',
