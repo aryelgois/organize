@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recover-login',
@@ -7,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecoverLoginPage implements OnInit {
 
+  recoverLoginForm = new FormGroup({
+    email: new FormControl('', [
+      Validators.email,
+      Validators.required,
+    ]),
+  });
+
   constructor(
   ) {}
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    if (this.recoverLoginForm.invalid) {
+      return;
+    }
+
+    console.log(this.recoverLoginForm.value);
   }
 
 }

@@ -10,4 +10,38 @@
 </ion-header>
 
 <ion-content>
+  <form
+    class="ion-padding"
+    [formGroup]="recoverLoginForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <ion-text>
+      Informe seu email para enviarmos um link de recuperação de conta.
+    </ion-text>
+
+    <div>
+      <ion-item>
+        <ion-label position="floating">
+          Email
+        </ion-label>
+        <ion-input
+          autofocus
+          clearInput
+          formControlName="email"
+          type="email"
+          required
+        ></ion-input>
+      </ion-item>
+      <app-input-message [field]="recoverLoginForm.get('email')"></app-input-message>
+    </div>
+
+    <ion-button type="submit" [disabled]="!recoverLoginForm.valid">
+      Enviar
+    </ion-button>
+
+    <ion-text class="ion-padding-top">
+      Esqueceu seu email? Entre em contato com o nosso
+      <a href="mailto:suport@example.com">Suporte</a>.
+    </ion-text>
+  </form>
 </ion-content>
