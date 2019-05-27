@@ -5,7 +5,6 @@
   ],
   "rules": {
     "array-type": false,
-    "arrow-parens": false,
     "deprecation": {
       "severity": "warn"
     },
@@ -31,7 +30,6 @@
         ]
       }
     ],
-    "no-consecutive-blank-lines": false,
     "no-console": [
       true,
       "debug",
@@ -60,13 +58,12 @@
       true,
       "single"
     ],
-    "trailing-comma": false,
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
     "no-input-rename": true,
-    "no-output-rename": true,
+    "no-output-rename": false,
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "one-variable-per-declaration": false,
