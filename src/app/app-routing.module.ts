@@ -17,7 +17,18 @@ const routes: Routes = [
   },
   {
     path: 'lists',
-    loadChildren: './pages/lists/lists.module#ListsPageModule',
+    children: [
+      {
+        path: '',
+        loadChildren: './pages/lists/lists.module#ListsPageModule',
+        pathMatch: 'full',
+      },
+      {
+        path: 'new',
+        loadChildren: './pages/new-list/new-list.module#NewListPageModule',
+        pathMatch: 'full',
+      },
+    ],
   },
 ];
 
