@@ -21,10 +21,6 @@
     [formGroup]="listForm"
     (ngSubmit)="onSubmit()"
   >
-    <ion-text>
-      Como quer chamar a sua lista?
-    </ion-text>
-
     <ion-item>
       <ion-label position="floating">
         Nome
@@ -37,6 +33,9 @@
         required
       ></ion-input>
     </ion-item>
+    <app-input-message [field]="listForm.get('name')">
+      Como quer chamar a sua lista?
+    </app-input-message>
   </form>
 </ion-content>
 
