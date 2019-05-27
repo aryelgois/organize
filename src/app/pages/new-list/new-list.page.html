@@ -4,7 +4,7 @@
       {{ isFirst ? 'Primeira lista' : 'Nova lista' }}
     </ion-title>
     <ion-buttons *ngIf="!isFirst" slot="start">
-      <ion-back-button defaultHref="/lists"></ion-back-button>
+      <ion-back-button icon="close" defaultHref="/lists"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="form.onSubmit()" [disabled]="!listForm.valid">
