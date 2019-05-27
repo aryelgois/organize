@@ -1,0 +1,11 @@
+<ion-item lines="none">
+  <ion-note *ngIf="isInvalid(); else hint" color="danger">
+    {{ errorMessage }}
+  </ion-note>
+</ion-item>
+
+<ng-template #hint>
+  <ion-note>
+    <ng-content></ng-content>
+  </ion-note>
+</ng-template>
