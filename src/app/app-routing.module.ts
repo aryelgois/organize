@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: './pages/home/home.module#HomePageModule',
   },
   {
+    path: 'join',
+    loadChildren: './pages/join/join.module#JoinPageModule',
+  },
+  {
     path: 'list',
     loadChildren: './pages/list/list.module#ListPageModule',
   },
