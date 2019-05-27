@@ -1,0 +1,15 @@
+form {
+  display: grid;
+  align-content: center;
+  grid-gap: 0.5em;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100%;
+
+  > * {
+    grid-column: span 2;
+  }
+
+  ion-button {
+    grid-column: span 1;
+  }
+}

@@ -12,7 +12,9 @@ export class InputMessageComponent implements OnInit {
   field: FormControl;
 
   private errorMessages = {
+    email: 'Não é um email válido',
     maxlength: 'Este valor é muito longo',
+    minlength: 'Este valor é muito curto',
     required: 'Este campo é obrigatório',
   };
 

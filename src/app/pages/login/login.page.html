@@ -10,4 +10,55 @@
 </ion-header>
 
 <ion-content>
+  <form
+    class="ion-padding"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div>
+      <ion-item>
+        <ion-label position="floating">
+          Email
+        </ion-label>
+        <ion-input
+          autofocus
+          clearInput
+          formControlName="email"
+          type="email"
+          required
+        ></ion-input>
+      </ion-item>
+      <app-input-message [field]="loginForm.get('email')"></app-input-message>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label position="floating">
+          Senha
+        </ion-label>
+        <ion-input
+          clearInput
+          formControlName="password"
+          minlength="6"
+          type="password"
+          required
+        ></ion-input>
+      </ion-item>
+      <app-input-message [field]="loginForm.get('password')"></app-input-message>
+    </div>
+
+    <ion-button fill="clear" routerLink="recover">
+      Esqueci
+    </ion-button>
+
+    <ion-button type="submit" [disabled]="!loginForm.valid">
+      Entrar
+    </ion-button>
+
+    <ion-text class="ion-text-center ion-padding-top">
+      Ainda não tem uma conta?<br>
+      <a routerLink="/join">Cadastre-se</a>
+      e sincronize suas listas.
+    </ion-text>
+  </form>
 </ion-content>
