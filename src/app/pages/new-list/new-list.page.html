@@ -6,8 +6,42 @@
     <ion-buttons *ngIf="!isFirst" slot="start">
       <ion-back-button defaultHref="/lists"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="form.onSubmit()" [disabled]="!listForm.valid">
+        OK
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form
+    #form="ngForm"
+    class="ion-padding"
+    [formGroup]="listForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <ion-text>
+      Como quer chamar a sua lista?
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="floating">
+        Nome
+      </ion-label>
+      <ion-input
+        autofocus
+        clearInput
+        formControlName="name"
+        maxlength="30"
+        required
+      ></ion-input>
+    </ion-item>
+  </form>
 </ion-content>
+
+<ion-footer *ngIf="isFirst">
+  <ion-button fill="clear" routerLink="/lists">
+    Pular
+  </ion-button>
+</ion-footer>

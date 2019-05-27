@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-list',
@@ -9,10 +10,25 @@ export class NewListPage implements OnInit {
 
   isFirst: boolean;
 
+  listForm = new FormGroup({
+    name: new FormControl('', [
+      Validators.maxLength(30),
+      Validators.required,
+    ]),
+  });
+
   constructor(
   ) {}
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    if (this.listForm.invalid) {
+      return;
+    }
+
+    console.log(this.listForm.value);
   }
 
 }
