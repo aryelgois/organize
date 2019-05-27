@@ -10,7 +10,28 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <app-emptystate *ngIf="lists?.length === 0">
+    Você ainda não tem listas
+
+    <ion-icon slot="top" name="clipboard"></ion-icon>
+
+    <div *ngIf="!isLogged" slot="bottom">
+      <p>
+        Crie uma ou conecte sua conta.
+      </p>
+      <ion-button routerLink="/login">
+        Fazer Login
+      </ion-button>
+    </div>
+
+    <div *ngIf="isLogged" slot="bottom">
+      <p>
+        Crie uma tocando no botão de mais.
+      </p>
+    </div>
+  </app-emptystate>
+
+  <ion-list *ngIf="lists?.length > 0">
     <ion-item *ngFor="let list of lists">
       <ion-avatar slot="start">
         <ion-img [src]="list.img || '/assets/images/dummy-img.png'" alt=""></ion-img>

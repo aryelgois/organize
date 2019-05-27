@@ -9,6 +9,8 @@ import { List } from '../../models/list';
 })
 export class ListsPage implements OnInit {
 
+  isLogged: boolean;
+
   lists: List[] = [];
 
   constructor(
