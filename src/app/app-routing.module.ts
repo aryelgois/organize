@@ -32,7 +32,17 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: './pages/login/login.module#LoginPageModule',
+    children: [
+      {
+        path: '',
+        loadChildren: './pages/login/login.module#LoginPageModule',
+        pathMatch: 'full',
+      },
+      {
+        path: 'recover',
+        loadChildren: './pages/recover-login/recover-login.module#RecoverLoginPageModule',
+      },
+    ],
   },
 ];
 
