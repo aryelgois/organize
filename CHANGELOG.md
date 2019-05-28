@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `RecoverLoginPage`
 
 ### Changed
+- Default `ListPage` now shows `List` products
 
 ### Deprecated
 

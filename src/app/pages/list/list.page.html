@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      List
+      {{ list?.name }}
     </ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/lists"></ion-back-button>
@@ -11,17 +11,13 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{ item.title }}
-      <div class="item-note" slot="end">
-        {{ item.note }}
-      </div>
+    <ion-item *ngFor="let product of list.products">
+      <ion-avatar slot="start">
+        <ion-img [src]="product.img || '/assets/images/dummy-img.png'" alt=""></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{ product.name }}
+      </ion-label>
     </ion-item>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{ selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>
