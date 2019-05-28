@@ -1,3 +1,7 @@
+ion-title ion-skeleton-text {
+  line-height: inherit;
+}
+
 app-emptystate {
   --emptystate-p-width: 60vw;
 }
@@ -7,6 +11,10 @@ ion-list {
     align-self: center;
     padding: 0;
     text-align: end;
+
+    ion-skeleton-text {
+      margin-left: auto;
+    }
 
     &.md div + div {
       margin-top: 0.375em;

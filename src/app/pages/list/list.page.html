@@ -1,7 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      {{ list?.name }}
+      <span *ngIf="list; else titleSkeleton">
+        {{ list.name }}
+      </span>
+      <ng-template #titleSkeleton>
+        <ion-skeleton-text animated width="50%"></ion-skeleton-text>
+      </ng-template>
     </ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/lists"></ion-back-button>
@@ -47,6 +52,30 @@
         </div>
         <div *ngIf="product.price !== undefined">
           {{ product.currency }} {{ product.price }}
+        </div>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="!list">
+    <ion-item *ngFor="let dummy of ' '.repeat(10).split('')">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          <ion-skeleton-text animated width="60%"></ion-skeleton-text>
+        </h2>
+        <p>
+          <ion-skeleton-text animated width="40%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+      <ion-note slot="end">
+        <div>
+          <ion-skeleton-text animated width="2em"></ion-skeleton-text>
+        </div>
+        <div>
+          <ion-skeleton-text animated width="4em"></ion-skeleton-text>
         </div>
       </ion-note>
     </ion-item>
