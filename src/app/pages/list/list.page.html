@@ -33,3 +33,11 @@
     </ion-item>
   </ion-list>
 </ion-content>
+
+<ion-footer *ngIf="list && list.products.length > 0">
+  <ion-toolbar>
+    <ion-label class="ion-padding-start">
+      {{ countChecked(list) }} de {{ list.products.length }}
+    </ion-label>
+  </ion-toolbar>
+</ion-footer>
