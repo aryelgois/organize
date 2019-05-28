@@ -28,8 +28,27 @@
         <ion-img [src]="product.img || '/assets/images/dummy-img.png'" alt=""></ion-img>
       </ion-avatar>
       <ion-label>
-        {{ product.name }}
+        <h2>
+          {{ product.name }}
+        </h2>
+        <p *ngIf="product.store; else productHint">
+          <ion-icon name="pin"></ion-icon>
+          {{ product.store }}
+        </p>
+        <ng-template #productHint>
+          <p *ngIf="product.hint">
+            {{ product.hint }}
+          </p>
+        </ng-template>
       </ion-label>
+      <ion-note slot="end">
+        <div *ngIf="product.amount !== undefined">
+          {{ product.amount }} {{ product.unit }}
+        </div>
+        <div *ngIf="product.price !== undefined">
+          {{ product.currency }} {{ product.price }}
+        </div>
+      </ion-note>
     </ion-item>
   </ion-list>
 </ion-content>
