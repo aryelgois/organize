@@ -27,11 +27,6 @@ export class AppComponent {
       url: '/lists',
       icon: 'list-box',
     },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list',
-    },
   ];
 
   constructor(

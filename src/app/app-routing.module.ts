@@ -16,10 +16,6 @@ const routes: Routes = [
     loadChildren: './pages/join/join.module#JoinPageModule',
   },
   {
-    path: 'list',
-    loadChildren: './pages/list/list.module#ListPageModule',
-  },
-  {
     path: 'lists',
     children: [
       {
@@ -31,6 +27,10 @@ const routes: Routes = [
         path: 'new',
         loadChildren: './pages/new-list/new-list.module#NewListPageModule',
         pathMatch: 'full',
+      },
+      {
+        path: ':listId',
+        loadChildren: './pages/list/list.module#ListPageModule',
       },
     ],
   },
