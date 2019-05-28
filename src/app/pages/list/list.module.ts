@@ -5,11 +5,14 @@ import { RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
+import { EmptystateComponentModule } from '../../components/emptystate/emptystate.module';
+
 import { ListPage } from './list.page';
 
 @NgModule({
   imports: [
     CommonModule,
+    EmptystateComponentModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild([

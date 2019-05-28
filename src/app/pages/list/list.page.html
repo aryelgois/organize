@@ -10,7 +10,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <app-emptystate *ngIf="list && list.products.length === 0">
+    Sua lista está vazia
+
+    <ion-icon slot="top" name="basket"></ion-icon>
+
+    <div slot="bottom">
+      <p>
+        Os produtos adicionados aparecerão aqui.
+      </p>
+    </div>
+  </app-emptystate>
+
+  <ion-list *ngIf="list && list.products.length > 0">
     <ion-item *ngFor="let product of list.products">
       <ion-avatar slot="start">
         <ion-img [src]="product.img || '/assets/images/dummy-img.png'" alt=""></ion-img>
