@@ -37,7 +37,12 @@
         <ion-img [src]="list.img || '/assets/images/dummy-img.png'" alt=""></ion-img>
       </ion-avatar>
       <ion-label>
-        {{ list.name }}
+        <h2>
+          {{ list.name }}
+        </h2>
+        <p>
+          {{ countChecked(list) }} de {{ list.products.length }}
+        </p>
       </ion-label>
     </ion-item>
   </ion-list>

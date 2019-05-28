@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { List } from '../../models/list';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-lists',
@@ -17,6 +18,12 @@ export class ListsPage implements OnInit {
   ) {}
 
   ngOnInit() {
+  }
+
+  countChecked(list: List): number {
+    return list.products
+      .filter((product: Product) => product.isChecked)
+      .length;
   }
 
 }
