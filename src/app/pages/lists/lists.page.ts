@@ -12,7 +12,7 @@ export class ListsPage implements OnInit {
 
   isLogged: boolean;
 
-  lists: List[] = [];
+  lists: List[];
 
   constructor(
   ) {}

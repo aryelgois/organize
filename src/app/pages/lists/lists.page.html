@@ -47,7 +47,23 @@
     </ion-item>
   </ion-list>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-list *ngIf="!lists">
+    <ion-item *ngFor="let dummy of ' '.repeat(10).split('')">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          <ion-skeleton-text animated width="50%"></ion-skeleton-text>
+        </h2>
+        <p>
+          <ion-skeleton-text animated width="30%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab *ngIf="lists" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button routerLink="new">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
