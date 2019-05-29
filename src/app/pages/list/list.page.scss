@@ -7,6 +7,14 @@ app-emptystate {
 }
 
 ion-list {
+  &.ios {
+    padding-bottom: 6px;
+  }
+
+  &.md {
+    padding-bottom: 38px;
+  }
+
   ion-note {
     align-self: center;
     padding: 0;

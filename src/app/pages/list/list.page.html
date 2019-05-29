@@ -88,6 +88,17 @@
       </ion-note>
     </ion-item>
   </ion-list>
+
+  <ion-fab
+    *ngIf="list && list.products.length === 0"
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+  >
+    <ion-fab-button routerLink="/products" [queryParams]="{ list: list.id }">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
 
 <ion-footer *ngIf="list && list.products.length > 0">
@@ -96,4 +107,10 @@
       {{ countChecked(list) }} de {{ list.products.length }}
     </ion-label>
   </ion-toolbar>
+
+  <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+    <ion-fab-button routerLink="/products" [queryParams]="{ list: list.id }">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-footer>
