@@ -48,6 +48,11 @@ const routes: Routes = [
       },
     ],
   },
+
+  {
+    path: 'products',
+    loadChildren: './pages/products/products.module#ProductsPageModule',
+  },
 ];
 
 @NgModule({
