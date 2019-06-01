@@ -43,7 +43,7 @@
   <ion-list *ngIf="lists?.length > 0">
     <ion-item *ngFor="let list of lists" [routerLink]="list.id">
       <ion-avatar slot="start">
-        <ion-img [src]="list.img || '/assets/images/dummy-img.png'" alt=""></ion-img>
+        <ion-img [src]="list.image || '/assets/images/dummy-img.png'" alt=""></ion-img>
       </ion-avatar>
       <ion-label>
         <h2>
