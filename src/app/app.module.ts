@@ -9,10 +9,16 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [
+    AppComponent,
+    ImageViewerComponent,
+  ],
+  entryComponents: [
+    ImageViewerComponent,
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

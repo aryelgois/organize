@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar [color]="color">
+    <ion-title>
+      {{ title }}
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons *ngIf="options.length > 0" slot="end">
+      <ion-button *ngFor="let option of options" (click)="option.handler()">
+        <ion-icon slot="icon-only" [name]="option.icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [color]="color" [forceOverscroll]="false" fullscreen="true">
+  <ion-slides [options]="slideOpts">
+    <ion-slide>
+      <div class="swiper-zoom-container">
+        <img [src]="source" height="100vh" alt="" />
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer *ngIf="description">
+  <ion-toolbar [color]="color" text-center>
+    <ion-text>
+      {{ description }}
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>
