@@ -1,6 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
+    <ion-input
+      autofocus
+      class="searchbar"
+      clearInput
+      debounce="400"
+      placeholder="Buscar produto"
+      type="search"
+    ></ion-input>
 
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>

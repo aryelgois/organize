@@ -1,0 +1,8 @@
+.searchbar {
+  background: rgba(var(--ion-color-medium-rgb), 0.125);
+  border-radius: 10px;
+
+  &.ios {
+    --padding-start: var(--padding-end);
+  }
+}
