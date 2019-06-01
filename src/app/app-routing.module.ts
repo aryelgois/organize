@@ -7,10 +7,12 @@ const routes: Routes = [
     redirectTo: 'lists',
     pathMatch: 'full',
   },
+
   {
     path: 'join',
     loadChildren: './pages/join/join.module#JoinPageModule',
   },
+
   {
     path: 'lists',
     children: [
@@ -30,6 +32,7 @@ const routes: Routes = [
       },
     ],
   },
+
   {
     path: 'login',
     children: [
