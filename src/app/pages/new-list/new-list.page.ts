@@ -15,6 +15,7 @@ export class NewListPage implements OnInit {
       Validators.maxLength(30),
       Validators.required,
     ]),
+    image: new FormControl(),
   });
 
   constructor(

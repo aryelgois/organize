@@ -1,0 +1,23 @@
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+
+  ion-fab-button {
+    --box-shadow: none;
+    --size: 64px;
+
+    grid-row: span 2;
+    height: var(--size);
+    width: var(--size);
+    z-index: 1;
+
+    &.ios {
+      --size: 48px;
+    }
+  }
+
+  app-input-message {
+    grid-column-start: 2;
+  }
+}

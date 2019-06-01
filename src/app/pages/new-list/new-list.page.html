@@ -23,7 +23,18 @@
     [formGroup]="listForm"
     (ngSubmit)="onSubmit()"
   >
-    <ion-item>
+    <ion-fab-button color="medium">
+      <ion-img
+        *ngIf="listForm.get('image').value as image; else addImage"
+        [src]="image"
+        alt=""
+      ></ion-img>
+      <ng-template #addImage>
+        <ion-icon name="camera"></ion-icon>
+      </ng-template>
+    </ion-fab-button>
+
+    <ion-item lines="inset">
       <ion-label position="floating">
         Nome
       </ion-label>
