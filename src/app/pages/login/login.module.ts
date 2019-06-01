@@ -16,12 +16,7 @@ import { LoginPage } from './login.page';
     InputMessageComponentModule,
     IonicModule,
     ReactiveFormsModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: LoginPage,
-      },
-    ]),
+    RouterModule.forChild([{ path: '', component: LoginPage }]),
   ],
   declarations: [LoginPage],
 })

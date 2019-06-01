@@ -16,12 +16,7 @@ import { JoinPage } from './join.page';
     InputMessageComponentModule,
     IonicModule,
     ReactiveFormsModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: JoinPage,
-      },
-    ]),
+    RouterModule.forChild([{ path: '', component: JoinPage }]),
   ],
   declarations: [JoinPage],
 })

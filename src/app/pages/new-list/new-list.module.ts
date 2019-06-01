@@ -16,12 +16,7 @@ import { NewListPage } from './new-list.page';
     InputMessageComponentModule,
     IonicModule,
     ReactiveFormsModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: NewListPage,
-      },
-    ]),
+    RouterModule.forChild([{ path: '', component: NewListPage }]),
   ],
   declarations: [NewListPage],
 })

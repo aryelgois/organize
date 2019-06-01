@@ -16,12 +16,7 @@ import { RecoverLoginPage } from './recover-login.page';
     InputMessageComponentModule,
     IonicModule,
     ReactiveFormsModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: RecoverLoginPage,
-      },
-    ]),
+    RouterModule.forChild([{ path: '', component: RecoverLoginPage }]),
   ],
   declarations: [RecoverLoginPage],
 })

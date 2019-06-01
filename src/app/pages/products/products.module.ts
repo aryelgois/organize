@@ -12,12 +12,7 @@ import { ProductsPage } from './products.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ProductsPage,
-      },
-    ]),
+    RouterModule.forChild([{ path: '', component: ProductsPage }]),
   ],
   declarations: [ProductsPage],
 })

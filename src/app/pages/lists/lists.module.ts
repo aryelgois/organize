@@ -15,12 +15,7 @@ import { ListsPage } from './lists.page';
     EmptystateComponentModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ListsPage,
-      },
-    ]),
+    RouterModule.forChild([{ path: '', component: ListsPage }]),
   ],
   declarations: [ListsPage],
 })
