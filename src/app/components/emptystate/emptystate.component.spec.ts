@@ -9,7 +9,7 @@ describe('EmptystateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmptystateComponent ],
+      declarations: [EmptystateComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   }));

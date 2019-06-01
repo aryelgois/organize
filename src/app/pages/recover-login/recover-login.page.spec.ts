@@ -9,7 +9,7 @@ describe('RecoverLoginPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecoverLoginPage ],
+      declarations: [RecoverLoginPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   }));
