@@ -16,4 +16,25 @@
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item *ngFor="let product of results">
+      <ion-avatar slot="start">
+        <ion-img [src]="product.img || '/assets/images/dummy-img.png'" alt=""></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          {{ product.name }}
+        </h2>
+        <p *ngIf="product.store; else productHint">
+          <ion-icon name="pin"></ion-icon>
+          {{ product.store }}
+        </p>
+        <ng-template #productHint>
+          <p *ngIf="product.hint">
+            {{ product.hint }}
+          </p>
+        </ng-template>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
