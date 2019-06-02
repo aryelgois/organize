@@ -43,7 +43,7 @@
       </ion-avatar>
       <ion-label>
         <h2>
-          {{ product.name }}
+          {{ product.name || product.abstract.name }}
         </h2>
         <p *ngIf="product.store; else productHint">
           <ion-icon name="pin"></ion-icon>
@@ -57,10 +57,10 @@
       </ion-label>
       <ion-note slot="end">
         <div *ngIf="product.amount !== null">
-          {{ product.amount }} {{ product.unit }}
+          {{ product.amount | number }} {{ product.unit || product.abstract.defaultUnit }}
         </div>
         <div *ngIf="product.price !== null">
-          {{ product.currency }} {{ product.price }}
+          {{ product.currency }} {{ product.price | number:'1.2-2' }}
         </div>
       </ion-note>
     </ion-item>

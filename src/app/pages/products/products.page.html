@@ -23,7 +23,7 @@
       </ion-avatar>
       <ion-label>
         <h2>
-          {{ product.name }}
+          {{ product.name || product.abstract.name }}
         </h2>
         <p *ngIf="product.store; else productHint">
           <ion-icon name="pin"></ion-icon>
