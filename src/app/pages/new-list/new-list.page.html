@@ -23,16 +23,18 @@
     [formGroup]="listForm"
     (ngSubmit)="onSubmit()"
   >
-    <ion-fab-button color="medium">
-      <ion-img
-        *ngIf="listForm.get('image').value as image; else addImage"
-        [src]="image"
-        alt=""
-      ></ion-img>
-      <ng-template #addImage>
-        <ion-icon name="camera"></ion-icon>
-      </ng-template>
+    <ion-fab-button
+      *ngIf="listForm.get('image').value as image; else addImage"
+      color="light"
+      (click)="presentImageModal()"
+    >
+      <ion-img [src]="image" alt=""></ion-img>
     </ion-fab-button>
+    <ng-template #addImage>
+      <ion-fab-button color="medium" (click)="selectImage()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ng-template>
 
     <ion-item lines="inset">
       <ion-label position="floating">
@@ -50,6 +52,13 @@
       Como quer chamar a sua lista?
     </app-input-message>
   </form>
+
+  <input
+    #fileInput
+    type="file"
+    accept="image/*"
+    (change)="changeImage($event)"
+  >
 </ion-content>
 
 <ion-footer *ngIf="isFirst">

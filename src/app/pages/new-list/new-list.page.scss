@@ -21,3 +21,7 @@ form {
     grid-column-start: 2;
   }
 }
+
+input[type="file"] {
+  display: none;
+}
