@@ -14,7 +14,6 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './pages/about/about.module#AboutPageModule',
-        pathMatch: 'full',
       },
       {
         path: 'privacy',
@@ -38,12 +37,10 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './pages/lists/lists.module#ListsPageModule',
-        pathMatch: 'full',
       },
       {
         path: 'new',
         loadChildren: './pages/new-list/new-list.module#NewListPageModule',
-        pathMatch: 'full',
       },
       {
         path: ':listId',
@@ -58,7 +55,6 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './pages/login/login.module#LoginPageModule',
-        pathMatch: 'full',
       },
       {
         path: 'recover',
