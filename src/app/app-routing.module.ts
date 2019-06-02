@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { NotFoundGuard } from './guards/not-found.guard';
 import { WelcomeGuard } from './guards/welcome.guard';
 
 const routes: Routes = [
@@ -79,6 +80,12 @@ const routes: Routes = [
   {
     path: 'welcome',
     loadChildren: './pages/welcome/welcome.module#WelcomePageModule',
+  },
+
+  {
+    path: '**',
+    canActivate: [NotFoundGuard],
+    children: [], // enables guard
   },
 ];
 
