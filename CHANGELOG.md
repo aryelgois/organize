@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `NewListPage`
   - `ProductsPage`
   - `RecoverLoginPage`
+  - `WelcomePage`
 - Miscellaneous:
   - File with app version
 

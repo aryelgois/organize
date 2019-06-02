@@ -67,6 +67,11 @@ const routes: Routes = [
     path: 'products',
     loadChildren: './pages/products/products.module#ProductsPageModule',
   },
+
+  {
+    path: 'welcome',
+    loadChildren: './pages/welcome/welcome.module#WelcomePageModule',
+  },
 ];
 
 @NgModule({
