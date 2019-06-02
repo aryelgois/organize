@@ -4,7 +4,7 @@ import { List } from './list';
 export interface Product {
   id: string;
   abstract: AbstractProduct;
-  name: string;
+  name: string|null;
   image: string|null;
   list: List;
   isChecked: boolean;
