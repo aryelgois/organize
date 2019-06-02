@@ -12,12 +12,18 @@ export class ProductsPage implements OnInit {
 
   list: List;
 
+  search: string;
+
   results: Product[];
 
   constructor(
   ) {}
 
   ngOnInit() {
+  }
+
+  onSearch(query: string): void {
+    console.log('search:', query);
   }
 
 }

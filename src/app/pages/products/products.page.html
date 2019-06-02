@@ -5,6 +5,8 @@
       class="searchbar"
       clearInput
       debounce="400"
+      [(ngModel)]="search"
+      (ngModelChange)="onSearch($event)"
       placeholder="{{ list ? 'Adicionar produto' : 'Buscar produto' }}"
       type="search"
     ></ion-input>
