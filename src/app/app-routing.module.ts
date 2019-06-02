@@ -9,6 +9,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'about',
+    loadChildren: './pages/about/about.module#AboutPageModule',
+  },
+
+  {
     path: 'join',
     loadChildren: './pages/join/join.module#JoinPageModule',
   },

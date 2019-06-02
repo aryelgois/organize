@@ -22,6 +22,11 @@ export class AppComponent {
       url: '/lists',
       icon: 'list-box',
     },
+    {
+      title: 'Sobre',
+      url: '/about',
+      icon: 'help-circle',
+    },
   ];
 
   constructor(
