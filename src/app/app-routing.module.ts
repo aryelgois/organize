@@ -17,6 +17,10 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       {
+        path: 'privacy',
+        loadChildren: './pages/about-privacy/about-privacy.module#AboutPrivacyPageModule',
+      },
+      {
         path: 'terms',
         loadChildren: './pages/about-terms/about-terms.module#AboutTermsPageModule',
       },
