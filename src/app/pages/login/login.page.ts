@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.invalid) {
       return;
     }

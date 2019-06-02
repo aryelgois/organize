@@ -32,7 +32,7 @@ export class NewListPage implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.listForm.invalid) {
       return;
     }
@@ -40,11 +40,11 @@ export class NewListPage implements OnInit {
     console.log(this.listForm.value);
   }
 
-  changeImage(event) {
+  changeImage(event): void {
     console.log(event);
   }
 
-  selectImage() {
+  selectImage(): void {
     this.fileInput.nativeElement.click();
   }
 

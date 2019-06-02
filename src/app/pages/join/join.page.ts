@@ -29,7 +29,7 @@ export class JoinPage implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.joinForm.invalid) {
       return;
     }

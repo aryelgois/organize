@@ -25,7 +25,7 @@ export class ListPage implements OnInit {
       .length;
   }
 
-  doRefresh(event) {
+  doRefresh(event): void {
     console.log('Begin async operation');
 
     setTimeout(() => {

@@ -21,7 +21,7 @@ export class RecoverLoginPage implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.recoverLoginForm.invalid) {
       return;
     }

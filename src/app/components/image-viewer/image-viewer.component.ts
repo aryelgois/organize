@@ -35,7 +35,7 @@ export class ImageViewerComponent implements OnInit {
   ngOnInit() {
   }
 
-  dismiss() {
+  dismiss(): void {
     this.modalCtrl.dismiss();
   }
 
