@@ -1,10 +1,54 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Bem-vindo!
+      {{ newcomer ? 'Bem-vindo!' : 'Sobre o app' }}
     </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <section class="ion-padding" [ngClass]="{ newcomer: newcomer }">
+    <div>
+      Com esse app,
+      você poderá organizar listas de compra,
+      comparar preços e produtos,
+      e será mais eficiente no dia a dia.
+    </div>
+
+    <ion-icon name="flag"></ion-icon>
+
+    <ng-container *ngIf="newcomer">
+      <span>
+        Para isso,
+        vamos criar sua primeira lista!
+      </span>
+
+      <ion-note class="ion-text-center ion-padding-top">
+        Ao usar esse aplicativo,
+        você concorda com nossos
+        <a routerLink="/about/terms">termos de serviço</a> e nossa
+        <a routerLink="/about/privacy">política de privacidade</a>.
+      </ion-note>
+    </ng-container>
+  </section>
 </ion-content>
+
+<ion-footer *ngIf="newcomer">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" routerDirection="root" routerLink="/lists">
+        Pular
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button color="primary" fill="solid" routerDirection="root" routerLink="/lists/new">
+        Vamos lá
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

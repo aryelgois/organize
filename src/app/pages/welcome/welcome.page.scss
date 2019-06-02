@@ -1,0 +1,19 @@
+section {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  height: 100%;
+
+  &.newcomer {
+    grid-template-rows: 1fr auto 1fr auto;
+  }
+
+  ion-icon {
+    justify-self: center;
+    font-size: 8em;
+  }
+
+  span {
+    align-self: center;
+    justify-self: center;
+  }
+}
