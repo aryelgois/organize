@@ -26,6 +26,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `NewListPage`
   - `ProductsPage`
   - `RecoverLoginPage`
+- Miscellaneous:
+  - File with app version
 
 ### Changed
 - Default `ListPage` now shows `List` products
