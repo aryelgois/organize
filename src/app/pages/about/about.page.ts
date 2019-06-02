@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutPage implements OnInit {
 
+  pages = [
+    {
+      title: 'Termos de serviço',
+      url: 'terms',
+      icon: 'paper',
+    },
+    {
+      title: 'Política de privacidade',
+      url: 'privacy',
+      icon: 'lock',
+    },
+  ];
+
   constructor(
   ) {}
 
