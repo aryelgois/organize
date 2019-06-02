@@ -10,7 +10,17 @@ const routes: Routes = [
 
   {
     path: 'about',
-    loadChildren: './pages/about/about.module#AboutPageModule',
+    children: [
+      {
+        path: '',
+        loadChildren: './pages/about/about.module#AboutPageModule',
+        pathMatch: 'full',
+      },
+      {
+        path: 'terms',
+        loadChildren: './pages/about-terms/about-terms.module#AboutTermsPageModule',
+      },
+    ],
   },
 
   {
