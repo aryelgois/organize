@@ -62,7 +62,11 @@
 </ion-content>
 
 <ion-footer *ngIf="isFirst">
-  <ion-button fill="clear" routerLink="/lists">
-    Pular
-  </ion-button>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerDirection="root" routerLink="/lists">
+        Pular
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-footer>
