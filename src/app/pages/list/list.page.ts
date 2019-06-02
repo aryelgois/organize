@@ -19,6 +19,10 @@ export class ListPage implements OnInit {
   ngOnInit() {
   }
 
+  swipeProduct(product: Product): void {
+    product.isChecked = !product.isChecked;
+  }
+
   countChecked(list: List): number {
     return list.products
       .filter((product: Product) => product.isChecked)

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { EmptystateComponentModule } from '../../components/emptystate/emptystate.module';
+import { ProductItemComponentModule } from '../../components/product-item/product-item.module';
 
 import { ListPage } from './list.page';
 
@@ -15,6 +16,7 @@ import { ListPage } from './list.page';
     EmptystateComponentModule,
     FormsModule,
     IonicModule,
+    ProductItemComponentModule,
     RouterModule.forChild([{ path: '', component: ListPage }]),
   ],
   declarations: [ListPage],
