@@ -1,0 +1,15 @@
+ion-item.product {
+  &.checked {
+    --ion-background-color: var(--ion-color-light-tint);
+  }
+}
+
+ion-note {
+  align-self: center;
+  padding: 0;
+  text-align: end;
+
+  &.md div + div {
+    margin-top: 0.375em;
+  }
+}

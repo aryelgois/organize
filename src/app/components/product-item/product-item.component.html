@@ -1,0 +1,47 @@
+<ion-item
+  *ngIf="product.abstract; else abstractProductItem"
+  [button]="button"
+  class="product"
+  [ngClass]="{ checked: showChecked && product.isChecked }"
+>
+  <ion-avatar slot="start">
+    <ion-img [src]="product.image || '/assets/images/dummy-img.png'" alt=""></ion-img>
+  </ion-avatar>
+
+  <ion-label [color]="showChecked && product.isChecked ? 'medium' : ''">
+    <h2>
+      {{ product.name || product.abstract.name }}
+    </h2>
+    <p *ngIf="product.store; else productHint">
+      <ion-icon name="pin"></ion-icon>
+      {{ product.store }}
+    </p>
+    <ng-template #productHint>
+      <p *ngIf="product.hint">
+        {{ product.hint }}
+      </p>
+    </ng-template>
+  </ion-label>
+
+  <ion-note *ngIf="showDetails" slot="end">
+    <div *ngIf="product.amount !== null">
+      {{ product.amount | number }} {{ product.unit || product.abstract.defaultUnit }}
+    </div>
+    <div *ngIf="product.price !== null">
+      {{ product.currency }} {{ product.price | number:'1.2-2' }}
+    </div>
+  </ion-note>
+</ion-item>
+
+<ng-template #abstractProductItem>
+  <ion-item class="abstract-product" lines="inset">
+    <ion-label>
+      <h2>
+        {{ product.name }}
+      </h2>
+      <p>
+        {{ product.keywords.join(', ') }}
+      </p>
+    </ion-label>
+  </ion-item>
+</ng-template>
