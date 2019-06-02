@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { WelcomeGuard } from './guards/welcome.guard';
+
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'lists',
+    canActivate: [WelcomeGuard],
+    children: [], // enables guard
     pathMatch: 'full',
   },
 

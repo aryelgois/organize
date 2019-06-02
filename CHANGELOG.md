@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `EmptystateComponent`
   - `ImageViewerComponent`
   - `InputMessageComponent`
+- Guards:
+  - `WelcomeGuard`
 - Models:
   - `List`
   - `Product`
