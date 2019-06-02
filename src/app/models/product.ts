@@ -1,7 +1,9 @@
+import { AbstractProduct } from './abstract-product';
 import { List } from './list';
 
 export interface Product {
   id: string;
+  abstract: AbstractProduct;
   name: string;
   image: string|null;
   list: List;
@@ -13,5 +15,4 @@ export interface Product {
   price: number|null;
   isUnitPrice: boolean;
   currency: string;
-  keywords: string[];
 }
