@@ -13,6 +13,11 @@ export class AboutPage implements OnInit {
 
   pages = [
     {
+      title: 'Sobre o app',
+      url: '/welcome',
+      icon: 'information-circle-outline',
+    },
+    {
       title: 'Termos de serviço',
       url: 'terms',
       icon: 'paper',
