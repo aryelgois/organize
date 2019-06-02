@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Não encontrado
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-emptystate>
+    Alguma coisa deu errado...
+
+    <ion-icon slot="top" name="sad"></ion-icon>
+
+    <div slot="bottom">
+      <p>
+        Não conseguimos encontrar essa página.
+      </p>
+      <ion-button routerLink="/">
+        Voltar ao início
+      </ion-button>
+    </div>
+  </app-emptystate>
+</ion-content>

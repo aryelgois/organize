@@ -12,6 +12,11 @@ const routes: Routes = [
   },
 
   {
+    path: '404',
+    loadChildren: './pages/not-found/not-found.module#NotFoundPageModule',
+  },
+
+  {
     path: 'about',
     children: [
       {
