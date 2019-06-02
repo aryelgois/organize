@@ -39,7 +39,7 @@
   <ion-list *ngIf="list && list.products.length > 0">
     <ion-item *ngFor="let product of list.products">
       <ion-avatar slot="start">
-        <ion-img [src]="product.img || '/assets/images/dummy-img.png'" alt=""></ion-img>
+        <ion-img [src]="product.image || '/assets/images/dummy-img.png'" alt=""></ion-img>
       </ion-avatar>
       <ion-label>
         <h2>
@@ -56,10 +56,10 @@
         </ng-template>
       </ion-label>
       <ion-note slot="end">
-        <div *ngIf="product.amount !== undefined">
+        <div *ngIf="product.amount !== null">
           {{ product.amount }} {{ product.unit }}
         </div>
-        <div *ngIf="product.price !== undefined">
+        <div *ngIf="product.price !== null">
           {{ product.currency }} {{ product.price }}
         </div>
       </ion-note>

@@ -1,14 +1,17 @@
+import { List } from './list';
+
 export interface Product {
   id: string;
   name: string;
-  img: string;
+  image: string|null;
+  list: List;
   isChecked: boolean;
-  hint?: string;
-  store?: string;
-  amount?: number;
-  unit: string;
-  price?: number;
-  currency: string;
+  hint: string|null;
+  store: string|null;
+  amount: number|null;
+  unit: string|null;
+  price: number|null;
   isUnitPrice: boolean;
+  currency: string;
   keywords: string[];
 }
