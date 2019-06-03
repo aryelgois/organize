@@ -27,12 +27,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `AboutPage`
   - `AboutPrivacyPage`
   - `AboutTermsPage`
+  - `EditListPage`
   - `EditProductPage`
   - `JoinPage`
   - `ListsPage`
   - `LoginPage`
   - `NewKeywordPage`
-  - `NewListPage`
   - `NotFoundPage`
   - `ProductKeywordsPage`
   - `ProductsPage`

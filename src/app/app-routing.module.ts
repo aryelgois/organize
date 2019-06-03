@@ -49,7 +49,7 @@ const routes: Routes = [
       },
       {
         path: 'new',
-        loadChildren: './pages/new-list/new-list.module#NewListPageModule',
+        loadChildren: './pages/edit-list/edit-list.module#EditListPageModule',
       },
       {
         path: ':listId',

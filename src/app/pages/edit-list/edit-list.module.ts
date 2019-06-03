@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { InputMessageComponentModule } from '../../components/input-message/input-message.module';
 
-import { NewListPage } from './new-list.page';
+import { EditListPage } from './edit-list.page';
 
 @NgModule({
   imports: [
@@ -16,8 +16,8 @@ import { NewListPage } from './new-list.page';
     InputMessageComponentModule,
     IonicModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{ path: '', component: NewListPage }]),
+    RouterModule.forChild([{ path: '', component: EditListPage }]),
   ],
-  declarations: [NewListPage],
+  declarations: [EditListPage],
 })
-export class NewListPageModule {}
+export class EditListPageModule {}

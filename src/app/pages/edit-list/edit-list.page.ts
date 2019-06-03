@@ -6,11 +6,11 @@ import { ModalController } from '@ionic/angular';
 import { ImageViewerComponent } from '../../components/image-viewer/image-viewer.component';
 
 @Component({
-  selector: 'app-new-list',
-  templateUrl: './new-list.page.html',
-  styleUrls: ['./new-list.page.scss'],
+  selector: 'app-edit-list',
+  templateUrl: './edit-list.page.html',
+  styleUrls: ['./edit-list.page.scss'],
 })
-export class NewListPage implements OnInit {
+export class EditListPage implements OnInit {
 
   @ViewChild('fileInput')
   fileInput: ElementRef;
