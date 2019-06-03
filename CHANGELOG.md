@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `AbstractProduct`
   - `List`
   - `Product`
+  - `ProductSearchResult`
 - Pages:
   - `AboutPage`
   - `AboutPrivacyPage`
