@@ -40,6 +40,8 @@
     <ion-item-sliding *ngFor="let product of list.products">
       <app-product-item
         [product]="product"
+        [routerLink]="['/products', product.id]"
+        [button]="true"
         [showChecked]="true"
         [showDetails]="true"
       ></app-product-item>
