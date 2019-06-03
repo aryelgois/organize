@@ -1,7 +1,6 @@
-import { AbstractProduct } from './abstract-product';
-import { Product } from './product';
+import { AnyProduct } from './product';
 
 export interface ProductSearchResult {
   title: string;
-  items: (AbstractProduct|Product)[];
+  items: AnyProduct[];
 }
