@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      {{ isFirst ? 'Primeira lista' : 'Nova lista' }}
+      {{ list ? 'Editar lista' : isFirst ? 'Primeira lista' : 'Nova lista' }}
     </ion-title>
 
     <ion-buttons *ngIf="!isFirst" slot="start">

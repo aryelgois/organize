@@ -53,7 +53,16 @@ const routes: Routes = [
       },
       {
         path: ':listId',
-        loadChildren: './pages/list/list.module#ListPageModule',
+        children: [
+          {
+            path: '',
+            loadChildren: './pages/list/list.module#ListPageModule',
+          },
+          {
+            path: 'edit',
+            loadChildren: './pages/edit-list/edit-list.module#EditListPageModule',
+          },
+        ],
       },
     ],
   },

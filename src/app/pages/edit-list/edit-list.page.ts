@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 import { ImageViewerComponent } from '../../components/image-viewer/image-viewer.component';
+import { List } from '../../models/list';
 
 @Component({
   selector: 'app-edit-list',
@@ -16,6 +17,8 @@ export class EditListPage implements OnInit {
   fileInput: ElementRef;
 
   isFirst: boolean;
+
+  list: List;
 
   listForm = new FormGroup({
     name: new FormControl('', [
