@@ -20,6 +20,7 @@
       <ion-note slot="start">
         <ion-button fill="none" (click)="voteUp(keyword)">
           <ion-icon
+            [color]="keyword.userVote > 0 ? 'success' : 'medium'"
             md="md-arrow-round-up"
             ios="ios-arrow-up"
           ></ion-icon>
@@ -29,6 +30,7 @@
 
         <ion-button fill="none" (click)="voteDown(keyword)">
           <ion-icon
+            [color]="keyword.userVote < 0 ? 'danger' : 'medium'"
             md="md-arrow-round-down"
             ios="ios-arrow-down"
           ></ion-icon>
