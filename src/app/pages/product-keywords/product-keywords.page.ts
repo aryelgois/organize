@@ -18,11 +18,23 @@ export class ProductKeywordsPage implements OnInit {
   }
 
   voteDown(keyword: Keyword) {
-    keyword.score -= 1;
+    if (keyword.userVote !== -1) {
+      keyword.score -= keyword.userVote + 1;
+      keyword.userVote = -1;
+    } else {
+      keyword.score += 1;
+      keyword.userVote = 0;
+    }
   }
 
   voteUp(keyword: Keyword) {
-    keyword.score += 1;
+    if (keyword.userVote !== 1) {
+      keyword.score += Math.abs(keyword.userVote) + 1;
+      keyword.userVote = 1;
+    } else {
+      keyword.score -= 1;
+      keyword.userVote = 0;
+    }
   }
 
 }
