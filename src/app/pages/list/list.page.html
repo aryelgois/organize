@@ -12,6 +12,12 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/lists"></ion-back-button>
     </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button *ngIf="list" (click)="presentListOptions()">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
