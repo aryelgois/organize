@@ -6,3 +6,21 @@
     --padding-start: var(--padding-end);
   }
 }
+
+.add-product ion-fab-button {
+  --box-shadow: none;
+  --size: 40px;
+
+  margin-right: 16px;
+  height: var(--size);
+  width: var(--size);
+
+  &.ios {
+    --size: 36px;
+  }
+}
+
+ion-item-divider {
+  position: sticky;
+  top: 0;
+}

@@ -18,25 +18,58 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let product of results">
-      <ion-avatar slot="start">
-        <ion-img [src]="product.image || '/assets/images/dummy-img.png'" alt=""></ion-img>
-      </ion-avatar>
-      <ion-label>
-        <h2>
-          {{ product.name || product.abstract.name }}
-        </h2>
-        <p *ngIf="product.store; else productHint">
-          <ion-icon name="pin"></ion-icon>
-          {{ product.store }}
-        </p>
-        <ng-template #productHint>
-          <p *ngIf="product.hint">
-            {{ product.hint }}
+  <app-emptystate *ngIf="!hasContent; else showContent">
+    Encontre produtos interessantes
+
+    <ion-icon slot="top" name="search"></ion-icon>
+
+    <div slot="bottom">
+      <p>
+        Começe a digitar para buscar produtos!
+      </p>
+    </div>
+  </app-emptystate>
+
+  <ng-template #showContent>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+      <ion-item
+        *ngIf="list && search && !exactMatch"
+        class="add-product"
+        routerLink="new"
+        [queryParams]="{ list: list.id, name: search }"
+      >
+        <ion-fab-button slot="start">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-label>
+          <h2>
+            {{ search }}
+          </h2>
+          <p>
+            Adicionar novo produto
           </p>
-        </ng-template>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+        </ion-label>
+      </ion-item>
+
+      <ng-container *ngFor="let group of content$ | async">
+        <ion-item-group *ngIf="group.items.length > 0">
+          <ion-item-divider>
+            <ion-label>
+              {{ group.title }}
+            </ion-label>
+          </ion-item-divider>
+          <app-product-item
+            *ngFor="let product of group.items"
+            [button]="true"
+            [product]="product"
+            (click)="navigate(product)"
+          ></app-product-item>
+        </ion-item-group>
+      </ng-container>
+    </ion-list>
+  </ng-template>
 </ion-content>
