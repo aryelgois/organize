@@ -70,7 +70,6 @@ export class ListPage implements OnInit {
         text: 'Cancelar',
         icon: 'close',
         role: 'cancel',
-        handler: () => console.log('Cancelar'),
       },
     ];
 
