@@ -3,9 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { AbstractProduct } from '../../models/abstract-product';
 import { List } from '../../models/list';
-import { Product } from '../../models/product';
+import { AnyProduct, isProduct } from '../../models/product';
 import { ProductSearchResult } from '../../models/product-search-result';
 
 @Component({
@@ -48,8 +47,7 @@ export class ProductsPage implements OnInit {
     }, 2000);
   }
 
-  navigate(product: AbstractProduct|Product): void {
-    const isProduct = product.hasOwnProperty('abstract');
+  navigate(product: AnyProduct): void {
     let url: string;
     let queryParams = {};
 
@@ -60,7 +58,7 @@ export class ProductsPage implements OnInit {
         product: product.id,
         name: this.search,
       };
-    } else if (isProduct) {
+    } else if (isProduct(product)) {
       url = product.id;
     } else {
       throw Error('Can not view AbstractProduct');
