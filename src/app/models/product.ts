@@ -1,5 +1,12 @@
-import { AbstractProduct } from './abstract-product';
+import { Keyword } from './keyword';
 import { List } from './list';
+
+export interface AbstractProduct {
+  id: string;
+  name: string;
+  defaultUnit: string|null;
+  keywords: Keyword[];
+}
 
 export interface Product {
   id: string;
