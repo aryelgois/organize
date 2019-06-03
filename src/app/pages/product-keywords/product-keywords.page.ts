@@ -17,6 +17,15 @@ export class ProductKeywordsPage implements OnInit {
   ngOnInit() {
   }
 
+  updateKeywords() {
+    this.keywords.sort((a, b) => {
+      const order = b.score - a.score;
+      return (order === 0)
+        ? ((a.text < b.text) ? -1 : ((a.text > b.text) ? 1 : 0))
+        : order;
+    });
+  }
+
   voteDown(keyword: Keyword) {
     if (keyword.userVote !== -1) {
       keyword.score -= keyword.userVote + 1;
@@ -25,6 +34,8 @@ export class ProductKeywordsPage implements OnInit {
       keyword.score += 1;
       keyword.userVote = 0;
     }
+
+    this.updateKeywords();
   }
 
   voteUp(keyword: Keyword) {
@@ -35,6 +46,8 @@ export class ProductKeywordsPage implements OnInit {
       keyword.score -= 1;
       keyword.userVote = 0;
     }
+
+    this.updateKeywords();
   }
 
 }
