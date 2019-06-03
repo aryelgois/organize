@@ -7,9 +7,12 @@ ion-list.md {
 }
 
 ion-item {
-  ion-note {
+  .score, .options {
     display: flex;
     align-items: center;
+  }
+
+  .score {
     flex-direction: column;
     margin: 0;
     padding-top: 0.5em;
@@ -19,5 +22,11 @@ ion-item {
     &.ios {
       font-size: 12px;
     }
+  }
+
+  .options {
+    font-size: 1.2em;
+    padding: 0.5em;
+    position: relative;
   }
 }

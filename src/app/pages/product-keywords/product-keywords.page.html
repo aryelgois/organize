@@ -17,7 +17,7 @@
         {{ keyword.text }}
       </ion-label>
 
-      <ion-note slot="start">
+      <ion-note slot="start" class="score">
         <ion-button fill="none" (click)="voteUp(keyword)">
           <ion-icon
             [color]="keyword.userVote > 0 ? 'success' : 'medium'"
@@ -36,6 +36,15 @@
           ></ion-icon>
         </ion-button>
       </ion-note>
+
+      <div
+        slot="end"
+        class="options ion-activatable"
+        (click)="presentKeywordOptions(keyword)"
+      >
+        <ion-icon name="more"></ion-icon>
+        <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+      </div>
     </ion-item>
   </ion-list>
 

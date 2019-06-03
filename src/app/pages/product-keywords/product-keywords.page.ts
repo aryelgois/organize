@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ActionSheetController } from '@ionic/angular';
+
 import { Keyword } from '../../models/keyword';
 
 @Component({
@@ -12,6 +14,7 @@ export class ProductKeywordsPage implements OnInit {
   keywords: Keyword[];
 
   constructor(
+    private actionSheetCtrl: ActionSheetController,
   ) {}
 
   ngOnInit() {
@@ -48,6 +51,29 @@ export class ProductKeywordsPage implements OnInit {
     }
 
     this.updateKeywords();
+  }
+
+  async presentKeywordOptions(keyword) {
+    const buttons = [
+      {
+        text: 'Denunciar',
+        icon: 'alert',
+        handler: () => console.log('Denunciar'),
+      },
+      {
+        text: 'Cancelar',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => console.log('Cancelar'),
+      },
+    ];
+
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: keyword.text,
+      buttons,
+    });
+
+    return await actionSheet.present();
   }
 
 }
