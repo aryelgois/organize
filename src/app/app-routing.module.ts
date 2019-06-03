@@ -85,7 +85,16 @@ const routes: Routes = [
       },
       {
         path: ':productId',
-        loadChildren: './pages/edit-product/edit-product.module#EditProductPageModule',
+        children: [
+          {
+            path: '',
+            loadChildren: './pages/edit-product/edit-product.module#EditProductPageModule',
+          },
+          {
+            path: 'keywords',
+            loadChildren: './pages/product-keywords/product-keywords.module#ProductKeywordsPageModule',
+          },
+        ],
       },
     ],
   },
