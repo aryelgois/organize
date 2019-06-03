@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ActionSheetController } from '@ionic/angular';
 
@@ -16,6 +17,8 @@ export class ListPage implements OnInit {
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -45,7 +48,7 @@ export class ListPage implements OnInit {
       {
         text: 'Editar',
         icon: 'create',
-        handler: () => console.log('Editar'),
+        handler: () => this.navigate(['edit']),
       },
       {
         text: 'Compartilhar',
@@ -77,6 +80,10 @@ export class ListPage implements OnInit {
     });
 
     return await actionSheet.present();
+  }
+
+  private navigate(url: any[]) {
+    return this.router.navigate(url, { relativeTo: this.route });
   }
 
 }
