@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 import { ImageViewerComponent } from '../../components/image-viewer/image-viewer.component';
+import { Keyword } from '../../models/keyword';
 import { Product } from '../../models/product';
 
 @Component({
@@ -50,8 +51,9 @@ export class EditProductPage implements OnInit {
     currency: new FormControl('BRL', [
       Validators.required,
     ]),
-    keywords: new FormControl([]),
   });
+
+  keywords: Keyword[];
 
   constructor(
     private modalCtrl: ModalController,

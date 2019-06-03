@@ -29,7 +29,7 @@
     [formGroup]="productForm"
     (ngSubmit)="onSubmit()"
   >
-    <ion-item-group class="form-fields ion-padding">
+    <section class="form-fields ion-padding">
       <div class="form-image-and-name">
         <ion-fab-button
           *ngIf="productForm.get('image').value as image; else addImage"
@@ -164,35 +164,40 @@
           ></ion-checkbox>
         </ion-item>
       </div>
-    </ion-item-group>
+    </section>
+  </form>
 
-    <ion-item-group class="form-keywords">
-      <ion-item-divider>
-        <ion-label>
-          Palavras-chave
-        </ion-label>
-      </ion-item-divider>
+  <ion-item-group class="form-keywords">
+    <ion-item-divider>
+      <ion-label>
+        Palavras-chave
+      </ion-label>
+    </ion-item-divider>
 
-      <div class="ion-padding">
-        <ion-chip *ngFor="let keyword of productForm.get('keywords').value">
+    <div class="ion-padding">
+      <ng-container *ngFor="let keyword of keywords">
+        <ion-chip
+          *ngIf="keyword.userVote !== -1"
+          [color]="['medium', 'success'][keyword.userVote]"
+        >
           <ion-label>
-            {{ keyword }}
+            {{ keyword.text }}
           </ion-label>
         </ion-chip>
+      </ng-container>
 
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button routerLink="keywords">
-              Ver tudo
-            </ion-button>
-          </ion-buttons>
-          <ion-buttons slot="end">
-            <ion-button color="primary">
-              Adicionar
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </div>
-    </ion-item-group>
-  </form>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button routerLink="keywords">
+            Ver tudo
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button color="primary">
+            Adicionar
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </div>
+  </ion-item-group>
 </ion-content>
