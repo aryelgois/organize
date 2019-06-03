@@ -7,8 +7,192 @@
     <ion-buttons slot="start">
       <ion-back-button icon="close" defaultHref="/products"></ion-back-button>
     </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="form.onSubmit()" [disabled]="!productForm.valid">
+        OK
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <input
+    #fileInput
+    type="file"
+    accept="image/*"
+    (change)="changeImage($event)"
+  >
+
+  <form
+    #form="ngForm"
+    [formGroup]="productForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <ion-item-group class="form-fields ion-padding">
+      <div class="form-image-and-name">
+        <ion-fab-button
+          *ngIf="productForm.get('image').value as image; else addImage"
+          color="light"
+          (click)="presentImageModal()"
+        >
+          <ion-img [src]="image" alt=""></ion-img>
+        </ion-fab-button>
+        <ng-template #addImage>
+          <ion-fab-button color="medium" (click)="selectImage()">
+            <ion-icon name="camera"></ion-icon>
+          </ion-fab-button>
+        </ng-template>
+
+        <ion-item lines="inset">
+          <ion-label position="floating">
+            Nome
+          </ion-label>
+          <ion-input
+            clearInput
+            formControlName="name"
+            maxlength="30"
+            required
+          ></ion-input>
+        </ion-item>
+        <app-input-message [field]="productForm.get('name')"></app-input-message>
+      </div>
+
+      <div>
+        <ion-item lines="full">
+          <ion-label position="floating">
+            Dica
+          </ion-label>
+          <ion-input
+            clearInput
+            formControlName="hint"
+            maxlength="30"
+          ></ion-input>
+        </ion-item>
+        <app-input-message [field]="productForm.get('hint')"></app-input-message>
+      </div>
+
+      <div>
+        <ion-item lines="full">
+          <ion-label position="floating">
+            Loja
+          </ion-label>
+          <ion-input
+            clearInput
+            formControlName="store"
+            maxlength="30"
+          ></ion-input>
+        </ion-item>
+        <app-input-message [field]="productForm.get('store')"></app-input-message>
+      </div>
+
+      <div>
+        <ion-item lines="full">
+          <ion-label position="floating">
+            Quantidade
+          </ion-label>
+          <ion-input
+            clearInput
+            formControlName="amount"
+            inputmode="numeric"
+            min="1"
+            max="9999"
+            [pattern]="amountPattern"
+          ></ion-input>
+        </ion-item>
+        <app-input-message [field]="productForm.get('amount')"></app-input-message>
+      </div>
+
+      <div>
+        <ion-item lines="full">
+          <ion-label position="floating">
+            Unidade
+          </ion-label>
+          <ion-input
+            clearInput
+            formControlName="unit"
+            maxlength="10"
+          ></ion-input>
+        </ion-item>
+        <app-input-message [field]="productForm.get('unit')"></app-input-message>
+      </div>
+
+      <div>
+        <ion-item lines="full">
+          <ion-label position="floating">
+            Preço
+          </ion-label>
+          <ion-input
+            clearInput
+            formControlName="price"
+            inputmode="numeric"
+            min="1"
+            max="999999"
+            [pattern]="pricePattern"
+          ></ion-input>
+        </ion-item>
+        <app-input-message [field]="productForm.get('price')"></app-input-message>
+      </div>
+
+      <div>
+        <ion-item lines="full">
+          <ion-label position="floating">
+            Moeda
+          </ion-label>
+          <ion-select
+            cancelText="Cancelar"
+            formControlName="currency"
+            placeholder="Selecione"
+            required
+          >
+            <ion-select-option value="BRL">
+              R$ - Real brasileiro
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <app-input-message [field]="productForm.get('currency')"></app-input-message>
+      </div>
+
+      <div>
+        <ion-item lines="none">
+          <ion-label>
+            Valor unitário
+          </ion-label>
+          <ion-checkbox
+            formControlName="isUnitPrice"
+            slot="start"
+          ></ion-checkbox>
+        </ion-item>
+      </div>
+    </ion-item-group>
+
+    <ion-item-group class="form-keywords">
+      <ion-item-divider>
+        <ion-label>
+          Palavras-chave
+        </ion-label>
+      </ion-item-divider>
+
+      <div class="ion-padding">
+        <ion-chip *ngFor="let keyword of productForm.get('keywords').value">
+          <ion-label>
+            {{ keyword }}
+          </ion-label>
+        </ion-chip>
+
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button>
+              Ver tudo
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button color="primary">
+              Adicionar
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+    </ion-item-group>
+  </form>
 </ion-content>

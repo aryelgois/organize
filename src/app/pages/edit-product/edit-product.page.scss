@@ -1,0 +1,46 @@
+input[type="file"] {
+  display: none;
+}
+
+.form-fields {
+  display: grid;
+  grid-template-columns: calc(50% - 0.5em) calc(50% - 0.5em);
+  grid-column-gap: 1em;
+
+  div {
+    grid-column: span 2;
+
+    &:nth-child(n+4):nth-child(-n+7) {
+      grid-column: span 1;
+    }
+  }
+}
+
+.form-image-and-name {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+
+  ion-fab-button {
+    --box-shadow: none;
+    --size: 64px;
+
+    grid-row: span 2;
+    height: var(--size);
+    width: var(--size);
+    z-index: 1;
+
+    &.ios {
+      --size: 48px;
+    }
+  }
+
+  app-input-message {
+    grid-column-start: 2;
+  }
+}
+
+ion-item-divider {
+  position: sticky;
+  top: 0;
+}
