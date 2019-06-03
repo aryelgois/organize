@@ -25,3 +25,7 @@ export interface Product {
 }
 
 export type AnyProduct = AbstractProduct|Product;
+
+export function isProduct(product: AnyProduct): product is Product {
+  return product.hasOwnProperty('abstract');
+}
