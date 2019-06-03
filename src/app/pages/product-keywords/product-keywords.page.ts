@@ -55,11 +55,18 @@ export class ProductKeywordsPage implements OnInit {
 
   async presentKeywordOptions(keyword) {
     const buttons = [
-      {
-        text: 'Denunciar',
-        icon: 'alert',
-        handler: () => console.log('Denunciar'),
-      },
+      keyword.userIsAuthor
+        ? {
+            text: 'Apagar',
+            role: 'destructive',
+            icon: 'trash',
+            handler: () => console.log('Apagar'),
+          }
+        : {
+            text: 'Denunciar',
+            icon: 'alert',
+            handler: () => console.log('Denunciar'),
+          },
       {
         text: 'Cancelar',
         icon: 'close',

@@ -6,5 +6,6 @@ export interface Keyword {
   score: number;
 
   // different for each user
+  userIsAuthor: boolean;
   userVote: vote;
 }
