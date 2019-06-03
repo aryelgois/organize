@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `JoinPage`
   - `ListsPage`
   - `LoginPage`
+  - `NewKeywordPage`
   - `NewListPage`
   - `NotFoundPage`
   - `ProductKeywordsPage`

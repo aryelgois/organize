@@ -92,7 +92,16 @@ const routes: Routes = [
           },
           {
             path: 'keywords',
-            loadChildren: './pages/product-keywords/product-keywords.module#ProductKeywordsPageModule',
+            children: [
+              {
+                path: '',
+                loadChildren: './pages/product-keywords/product-keywords.module#ProductKeywordsPageModule',
+              },
+              {
+                path: 'new',
+                loadChildren: './pages/new-keyword/new-keyword.module#NewKeywordPageModule',
+              },
+            ],
           },
         ],
       },
