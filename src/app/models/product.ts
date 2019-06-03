@@ -23,3 +23,5 @@ export interface Product {
   isUnitPrice: boolean;
   currency: string;
 }
+
+export type AnyProduct = AbstractProduct|Product;
