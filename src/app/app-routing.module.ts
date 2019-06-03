@@ -74,7 +74,20 @@ const routes: Routes = [
 
   {
     path: 'products',
-    loadChildren: './pages/products/products.module#ProductsPageModule',
+    children: [
+      {
+        path: '',
+        loadChildren: './pages/products/products.module#ProductsPageModule',
+      },
+      {
+        path: 'new',
+        loadChildren: './pages/edit-product/edit-product.module#EditProductPageModule',
+      },
+      {
+        path: ':productId',
+        loadChildren: './pages/edit-product/edit-product.module#EditProductPageModule',
+      },
+    ],
   },
 
   {
