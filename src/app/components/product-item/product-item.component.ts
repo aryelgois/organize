@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { AbstractProduct } from '../../models/abstract-product';
-import { Product } from '../../models/product';
+import { AnyProduct, isProduct } from '../../models/product';
 
 @Component({
   selector: 'app-product-item',
@@ -14,13 +13,21 @@ export class ProductItemComponent implements OnInit {
   button: boolean;
 
   @Input()
-  product: AbstractProduct|Product;
+  product: AnyProduct;
 
   @Input()
   showChecked: boolean;
 
   @Input()
   showDetails: boolean;
+
+  get keywords() {
+    const items = isProduct(this.product)
+      ? this.product.abstract.keywords
+      : this.product.keywords;
+
+    return items.map((keyword) => keyword.text).join(', ');
+  }
 
   constructor(
   ) {}

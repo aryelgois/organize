@@ -34,13 +34,13 @@
 </ion-item>
 
 <ng-template #abstractProductItem>
-  <ion-item class="abstract-product" lines="inset">
+  <ion-item class="abstract-product" lines="inset" [button]="button">
     <ion-label>
       <h2>
         {{ product.name }}
       </h2>
       <p>
-        {{ product.keywords.join(', ') }}
+        {{ keywords }}
       </p>
     </ion-label>
   </ion-item>
