@@ -7,8 +7,38 @@
     <ion-buttons slot="start">
       <ion-back-button icon="close"></ion-back-button>
     </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="form.onSubmit()" [disabled]="!keywordForm.valid">
+        OK
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form
+    #form="ngForm"
+    class="ion-padding"
+    [formGroup]="keywordForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div>
+      <ion-item lines="inset">
+        <ion-label position="floating">
+          Palavra-chave
+        </ion-label>
+        <ion-input
+          autofocus
+          clearInput
+          formControlName="text"
+          maxlength="30"
+          required
+        ></ion-input>
+      </ion-item>
+      <app-input-message [field]="keywordForm.get('text')">
+        Escreva um termo que associe ao produto
+      </app-input-message>
+    </div>
+  </form>
 </ion-content>
