@@ -64,7 +64,16 @@ const routes: Routes = [
           },
           {
             path: 'share',
-            loadChildren: './pages/share-list/share-list.module#ShareListPageModule',
+            children: [
+              {
+                path: '',
+                loadChildren: './pages/share-list/share-list.module#ShareListPageModule',
+              },
+              {
+                path: 'invite',
+                loadChildren: './pages/invite/invite.module#InvitePageModule',
+              },
+            ],
           },
         ],
       },
