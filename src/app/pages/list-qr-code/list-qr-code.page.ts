@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListQrCodePage implements OnInit {
 
+  code: string;
+
   constructor(
   ) {}
 
