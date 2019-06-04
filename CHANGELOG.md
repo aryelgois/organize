@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `ProductKeywordsPage`
   - `ProductsPage`
   - `RecoverLoginPage`
+  - `ShareListPage`
   - `WelcomePage`
 - Type guards:
   - `isProduct`

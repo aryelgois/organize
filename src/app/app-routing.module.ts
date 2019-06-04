@@ -62,6 +62,10 @@ const routes: Routes = [
             path: 'edit',
             loadChildren: './pages/edit-list/edit-list.module#EditListPageModule',
           },
+          {
+            path: 'share',
+            loadChildren: './pages/share-list/share-list.module#ShareListPageModule',
+          },
         ],
       },
     ],
