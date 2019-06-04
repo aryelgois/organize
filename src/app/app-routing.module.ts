@@ -73,6 +73,10 @@ const routes: Routes = [
                 path: 'invite',
                 loadChildren: './pages/invite/invite.module#InvitePageModule',
               },
+              {
+                path: 'qrcode',
+                loadChildren: './pages/list-qr-code/list-qr-code.module#ListQrCodePageModule',
+              },
             ],
           },
         ],
