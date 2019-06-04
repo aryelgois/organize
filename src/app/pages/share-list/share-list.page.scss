@@ -1,0 +1,62 @@
+ion-footer {
+  ion-list {
+    outline: none;
+
+    &.ios {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.owner {
+  position: relative;
+
+  &::after {
+    content: '';
+    background: var(--ion-color-medium);
+    position: absolute;
+    right: -8px;
+    top: 0;
+    height: 100%;
+    width: 1px;
+  }
+}
+
+.others {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    background: linear-gradient(to right, transparent 0%, var(--ion-item-background, var(--ion-background-color, #fff)) 100%);
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 16px;
+  }
+
+  ion-avatar {
+    --size: 40px;
+
+    flex-shrink: 0;
+    margin-right: 8px;
+    height: var(--size);
+    width: var(--size);
+
+    &.ios {
+      --size: 36px;
+    }
+  }
+}
+
+.anonymous {
+  background: var(--ion-color-medium);
+  color: var(--ion-color-medium-contrast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}

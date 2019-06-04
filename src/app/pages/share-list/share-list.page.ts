@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
+import { User } from '../../models/user';
+
 @Component({
   selector: 'app-share-list',
   templateUrl: './share-list.page.html',
   styleUrls: ['./share-list.page.scss'],
 })
 export class ShareListPage implements OnInit {
+
+  owner: User;
+  users: User[];
+  anonymous: number;
 
   items = [
     {

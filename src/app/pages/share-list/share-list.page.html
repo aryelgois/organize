@@ -30,3 +30,42 @@
     </ng-container>
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-list class="ion-activatable" routerLink="access">
+    <ion-list-header>
+      Quem pode acessar
+    </ion-list-header>
+
+    <ion-item *ngIf="owner; else accessSkeleton" lines="none">
+      <ion-avatar slot="start" class="owner">
+        <ion-img [src]="owner.person?.image || '/assets/images/dummy-img.png'"></ion-img>
+      </ion-avatar>
+
+      <ion-label *ngIf="!users || users.length === 0 && anonymous === 0; else others">
+        Só você
+      </ion-label>
+
+      <ng-template #others>
+        <div class="others">
+          <ion-avatar *ngFor="let user of users">
+            <ion-img [src]="user.person.image || '/assets/images/dummy-img.png'"></ion-img>
+          </ion-avatar>
+        </div>
+        <ion-avatar *ngIf="anonymous > 0" slot="end" class="anonymous">
+          +{{ anonymous }}
+        </ion-avatar>
+      </ng-template>
+    </ion-item>
+
+    <ng-template #accessSkeleton>
+      <ion-item lines="none">
+        <ion-avatar slot="start" class="owner">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+      </ion-item>
+    </ng-template>
+
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-list>
+</ion-footer>
