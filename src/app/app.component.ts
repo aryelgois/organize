@@ -23,6 +23,11 @@ export class AppComponent {
       icon: 'list-box',
     },
     {
+      title: 'Ler código QR',
+      icon: 'barcode',
+      url: '/lists/qrscanner',
+    },
+    {
       title: 'Sobre',
       icon: 'help-circle',
       url: '/about',
