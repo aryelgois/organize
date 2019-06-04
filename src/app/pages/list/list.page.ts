@@ -53,7 +53,7 @@ export class ListPage implements OnInit {
       {
         text: 'Compartilhar',
         icon: 'share',
-        handler: () => console.log('Compartilhar'),
+        handler: () => this.navigate(['share']),
       },
       {
         text: 'Duplicar',
