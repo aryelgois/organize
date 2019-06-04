@@ -14,12 +14,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `ImageViewerComponent`
   - `InputMessageComponent`
   - `ProductItemComponent`
+  - `QrScannerComponent`
 - Dependencies:
   - [clipboard]
   - [qrcode]
 - Guards:
   - `NotFoundGuard`
   - `WelcomeGuard`
+- Icons:
+  - `qr-scanner-corner`
 - Models:
   - `AbstractProduct`
   - `Keyword`
@@ -27,6 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `Person`
   - `Product`
   - `ProductSearchResult`
+  - `QrScan`
   - `User`
 - Pages:
   - `AboutPage`

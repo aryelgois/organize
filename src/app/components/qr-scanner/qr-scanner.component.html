@@ -1,0 +1,51 @@
+<div class="scanner-box" *ngIf="status?.scanning && !isInvalid">
+  <ion-icon
+    *ngFor="let corner of ['top left', 'top right', 'bottom left', 'bottom right']"
+    [ngClass]="['corner', corner]"
+    src="/assets/icons/qr-scanner-corner.svg"
+  ></ion-icon>
+  <div class="scanner-line"></div>
+</div>
+
+<app-emptystate class="scanner-error" *ngIf="scannerError">
+  {{ scannerError.title }}
+
+  <ion-icon slot="top" name="camera"></ion-icon>
+
+  <div slot="bottom">
+    <p>
+      {{ scannerError.description }}
+    </p>
+
+    <ion-button
+      *ngIf="scannerError.name !== 'CAMERA_ACCESS_DENIED'; else cameraDenied"
+      (click)="doScan()"
+    >
+      Tentar de novo
+    </ion-button>
+
+    <ng-template #cameraDenied>
+      <ion-button (click)="openSettings()">
+        Abrir Configurações
+      </ion-button>
+      <ion-button fill="clear" (click)="doScan()">
+        Tentar de novo
+      </ion-button>
+    </ng-template>
+  </div>
+</app-emptystate>
+
+<app-emptystate class="scanner-retry" *ngIf="isInvalid">
+  O código lido é inválido
+
+  <ion-icon slot="top" name="close-circle-outline"></ion-icon>
+
+  <div slot="bottom">
+    <p>
+      Confira se o código QR é de uma lista de compra.
+    </p>
+    <ion-button (click)="doScan()">
+      Tentar de novo
+    </ion-button>
+  </div>
+</app-emptystate>

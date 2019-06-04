@@ -1,0 +1,78 @@
+:host {
+  --scanner-box-size: 50vw;
+  --scanner-line-overflow: 0.625em;
+  --scanner-line-height: 0.125em;
+
+  height: 100%;
+  display: grid;
+}
+
+.scanner-box {
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: var(--scanner-box-size);
+  width: var(--scanner-box-size);
+  position: relative;
+
+  .corner {
+    color: rgba(var(--ion-color-light-rgb), 0.75);
+    font-size: calc(var(--scanner-box-size) / 4);
+
+    &.right {
+      justify-self: right;
+    }
+
+    &.bottom {
+      align-self: end;
+    }
+
+    &.top.right {
+      transform: rotate(90deg);
+    }
+
+    &.bottom.left {
+      transform: rotate(-90deg);
+    }
+
+    &.bottom.right {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.scanner-line {
+  animation: scannerLineAnimation linear 3s alternate;
+  animation-iteration-count: infinite;
+  background: var(--ion-color-primary-tint);
+  box-shadow: 0px 0px 0.4em 0px var(--ion-color-primary-shade);
+  box-sizing: content-box;
+  height: var(--scanner-line-height);
+  width: 100%;
+  padding: 0 var(--scanner-line-overflow);
+  position: absolute;
+  left: calc(-1 * var(--scanner-line-overflow));
+}
+
+@keyframes scannerLineAnimation {
+  0% {
+    top: calc(var(--scanner-box-size) / 32);
+  }
+  100% {
+    top: calc(100% - var(--scanner-box-size) / 32 - var(--scanner-line-height));
+  }
+}
+
+.scanner-error {
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.scanner-retry {
+  background: rgba(var(--ion-color-dark-rgb), 0.375);
+}
