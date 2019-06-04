@@ -52,6 +52,10 @@ const routes: Routes = [
         loadChildren: './pages/edit-list/edit-list.module#EditListPageModule',
       },
       {
+        path: 'qrscanner',
+        loadChildren: './pages/list-qr-scanner/list-qr-scanner.module#ListQrScannerPageModule',
+      },
+      {
         path: ':listId',
         children: [
           {
