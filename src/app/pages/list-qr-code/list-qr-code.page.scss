@@ -7,3 +7,10 @@ section {
   max-width: 14em;
   text-align: center;
 }
+
+ion-skeleton-text {
+  --size: calc(14em - 32px);
+
+  height: var(--size);
+  width: var(--size)
+}

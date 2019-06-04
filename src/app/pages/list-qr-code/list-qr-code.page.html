@@ -12,15 +12,21 @@
 
 <ion-content>
   <section class="ion-padding">
-    <ion-img class="qrcode" src="/assets/images/dummy-img.png"></ion-img>
+    <ion-img *ngIf="qrcode; else dummy" class="qrcode" [src]="qrcode" alt=""></ion-img>
 
-    <ion-label>
-      Problema na leitura?<br>
-      Use o código abaixo:
-    </ion-label>
+    <ng-template #dummy>
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </ng-template>
 
-    <ion-button color="light" expand="block" size="large">
-      {{ code }}
-    </ion-button>
+    <ng-container *ngIf="code">
+      <ion-label>
+        Problema na leitura?<br>
+        Use o código abaixo:
+      </ion-label>
+
+      <ion-button color="light" expand="block" size="large">
+        {{ code }}
+      </ion-button>
+    </ng-container>
   </section>
 </ion-content>
