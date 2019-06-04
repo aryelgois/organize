@@ -7,6 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShareListPage implements OnInit {
 
+  items = [
+    {
+      title: 'Convidar',
+      icon: 'person-add',
+      url: 'invite',
+    },
+    {
+      title: 'Código QR',
+      icon: 'barcode',
+      url: 'qrcode',
+    },
+    {
+      title: 'Enviar link',
+      icon: 'link',
+      handler: () => console.log('Enviar link'),
+    },
+  ];
+
   constructor(
   ) {}
 
