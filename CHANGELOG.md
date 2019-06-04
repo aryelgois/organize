@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `InputMessageComponent`
   - `ProductItemComponent`
 - Dependencies:
+  - [clipboard]
   - [qrcode]
 - Guards:
   - `NotFoundGuard`
@@ -65,4 +66,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+[clipboard]: https://www.npmjs.com/package/clipboard
 [qrcode]: https://www.npmjs.com/package/qrcode
