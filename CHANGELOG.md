@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `ImageViewerComponent`
   - `InputMessageComponent`
   - `ProductItemComponent`
+- Dependencies:
+  - [qrcode]
 - Guards:
   - `NotFoundGuard`
   - `WelcomeGuard`
@@ -61,3 +63,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 ### Security
+
+
+[qrcode]: https://www.npmjs.com/package/qrcode
