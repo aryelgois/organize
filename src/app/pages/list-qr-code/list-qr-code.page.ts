@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
+import { ToastController } from '@ionic/angular';
+
 import ClipboardJS from 'clipboard';
 
 import QRCode from 'qrcode';
@@ -17,6 +19,7 @@ export class ListQrCodePage implements OnDestroy, OnInit {
   clipboard: ClipboardJS;
 
   constructor(
+    private toastCtrl: ToastController,
   ) {}
 
   ngOnInit() {
@@ -29,12 +32,23 @@ export class ListQrCodePage implements OnDestroy, OnInit {
 
       this.clipboard = new ClipboardJS('.clipboard', {
         text: () => this.code,
-      });
+      })
+        .on('success', () => this.presentToast({ message: 'Código copiado!'}))
+        .on('error', () => this.presentToast({ message: 'Não foi possível copiar o código'}));
     }
   }
 
   ngOnDestroy() {
     this.clipboard.destroy();
+  }
+
+  private async presentToast(options: any) {
+    const toast = await this.toastCtrl.create({
+      duration: 2000,
+      ...options,
+    });
+
+    return toast.present();
   }
 
 }
