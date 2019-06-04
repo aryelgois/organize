@@ -14,18 +14,23 @@
   <ion-list>
     <ng-container *ngFor="let item of items">
       <ion-item *ngIf="item.url; else actionItem" [routerLink]="[item.url]">
-        <ion-icon slot="start" [name]="item.icon"></ion-icon>
+        <ion-icon *ngIf="item.icon; else customIcon" slot="start" [name]="item.icon"></ion-icon>
         <ion-label>
           {{ item.title }}
         </ion-label>
       </ion-item>
+
       <ng-template #actionItem>
         <ion-item button (click)="item.handler()">
-          <ion-icon slot="start" [name]="item.icon"></ion-icon>
+          <ion-icon *ngIf="item.icon; else customIcon" slot="start" [name]="item.icon"></ion-icon>
           <ion-label>
             {{ item.title }}
           </ion-label>
         </ion-item>
+      </ng-template>
+
+      <ng-template #customIcon>
+        <ion-icon slot="start" [src]="item.iconSrc"></ion-icon>
       </ng-template>
     </ng-container>
   </ion-list>

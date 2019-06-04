@@ -21,7 +21,7 @@ export class ShareListPage implements OnInit {
     },
     {
       title: 'Código QR',
-      icon: 'barcode',
+      iconSrc: '/assets/icons/qr-code.svg',
       url: 'qrcode',
     },
     {
