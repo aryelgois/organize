@@ -14,8 +14,8 @@ export class AppComponent {
   pages = [
     {
       title: 'Login',
-      url: '/login',
       icon: 'log-in',
+      url: '/login',
     },
     {
       title: 'Minhas listas',
@@ -24,8 +24,8 @@ export class AppComponent {
     },
     {
       title: 'Sobre',
-      url: '/about',
       icon: 'help-circle',
+      url: '/about',
     },
   ];
 
