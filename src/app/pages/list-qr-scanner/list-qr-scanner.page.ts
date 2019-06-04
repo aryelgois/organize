@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+
+/*
+import { QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+*/
+
+import { QrScan } from '../../models/qr-scan';
 
 @Component({
   selector: 'app-list-qr-scanner',
@@ -8,10 +14,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListQrScannerPage implements OnInit {
 
+  @HostBinding('class.scanner-showing')
+  scannerIsShowing: boolean;
+
   constructor(
   ) {}
 
   ngOnInit() {
+  }
+
+  onScan(scan: QrScan) {
+    console.log('Scanned something:', scan);
+  }
+
+  onStatus(status) { // (status: QRScannerStatus)
+    this.scannerIsShowing = status.showing;
   }
 
 }

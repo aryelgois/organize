@@ -11,4 +11,8 @@
 </ion-header>
 
 <ion-content>
+  <app-qr-scanner
+    (scan)="onScan($event)"
+    (status)="onStatus($event)"
+  ></app-qr-scanner>
 </ion-content>

@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
+import { QrScannerComponentModule } from '../../components/qr-scanner/qr-scanner.module';
+
 import { ListQrScannerPage } from './list-qr-scanner.page';
 
 @NgModule({
@@ -12,6 +14,7 @@ import { ListQrScannerPage } from './list-qr-scanner.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    QrScannerComponentModule,
     RouterModule.forChild([{ path: '', component: ListQrScannerPage }]),
   ],
   declarations: [ListQrScannerPage],
