@@ -7,8 +7,52 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="form.onSubmit()" [disabled]="!inviteForm.valid">
+        <ion-icon slot="icon-only" name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form
+    #form="ngForm"
+    class="ion-padding"
+    [formGroup]="inviteForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div>
+      <ion-item>
+        <ion-label position="floating">
+          Email
+        </ion-label>
+        <ion-input
+          autofocus
+          clearInput
+          formControlName="email"
+          type="email"
+          required
+        ></ion-input>
+      </ion-item>
+      <app-input-message [field]="inviteForm.get('email')"></app-input-message>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label position="floating">
+          Mensagem
+        </ion-label>
+        <ion-textarea
+          autoGrow="true"
+          formControlName="message"
+          maxLength="500"
+        ></ion-textarea>
+      </ion-item>
+      <app-input-message [field]="inviteForm.get('message')">
+        Até 500 caracteres
+      </app-input-message>
+    </div>
+  </form>
 </ion-content>
