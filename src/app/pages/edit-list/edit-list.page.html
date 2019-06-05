@@ -49,7 +49,9 @@
       ></ion-input>
     </ion-item>
     <app-input-message [field]="listForm.get('name')">
-      Como quer chamar a sua lista?
+      <ng-container *ngIf="!list">
+        Como quer chamar a sua lista?
+      </ng-container>
     </app-input-message>
   </form>
 
