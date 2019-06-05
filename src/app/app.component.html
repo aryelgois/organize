@@ -10,7 +10,12 @@
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let page of pages">
             <ion-item routerDirection="root" [routerLink]="[page.url]">
-              <ion-icon slot="start" [name]="page.icon"></ion-icon>
+              <ion-icon *ngIf="page.icon; else customIcon" slot="start" [name]="page.icon"></ion-icon>
+
+              <ng-template #customIcon>
+                <ion-icon slot="start" [src]="page.iconSrc"></ion-icon>
+              </ng-template>
+
               <ion-label>
                 {{ page.title }}
               </ion-label>

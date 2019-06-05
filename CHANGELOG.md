@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `WelcomeGuard`
 - Icons:
   - `qr-code`
+  - `qr-scanner`
   - `qr-scanner-corner`
 - Models:
   - `AbstractProduct`
