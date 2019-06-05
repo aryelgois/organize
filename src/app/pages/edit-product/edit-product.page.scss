@@ -4,8 +4,8 @@ input[type="file"] {
 
 .form-fields {
   display: grid;
-  grid-template-columns: calc(50% - 0.5em) calc(50% - 0.5em);
-  grid-column-gap: 1em;
+  grid-template-columns: calc(50% - 0.25em) calc(50% - 0.25em);
+  grid-gap: 0.5em;
 
   div {
     grid-column: span 2;
