@@ -74,6 +74,10 @@ const routes: Routes = [
                 loadChildren: './pages/share-list/share-list.module#ShareListPageModule',
               },
               {
+                path: 'access',
+                loadChildren: './pages/list-access/list-access.module#ListAccessPageModule',
+              },
+              {
                 path: 'invite',
                 loadChildren: './pages/invite/invite.module#InvitePageModule',
               },

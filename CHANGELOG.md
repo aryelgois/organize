@@ -42,6 +42,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `EditProductPage`
   - `InvitePage`
   - `JoinPage`
+  - `ListAccessPage`
   - `ListQrCodePage`
   - `ListQrScannerPage`
   - `ListsPage`
