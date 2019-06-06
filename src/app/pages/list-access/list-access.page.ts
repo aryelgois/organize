@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActionSheetController } from '@ionic/angular';
 
-import { User } from '../../models/user';
+import { isSameUser, User } from '../../models/user';
 
 @Component({
   selector: 'app-list-access',
@@ -10,6 +10,9 @@ import { User } from '../../models/user';
   styleUrls: ['./list-access.page.scss'],
 })
 export class ListAccessPage implements OnInit {
+
+  user: User;
+  userIsOwner: boolean;
 
   owner: User;
   users: User[] = [];
@@ -23,6 +26,7 @@ export class ListAccessPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    // this.userIsOwner = isSameUser(this.user, this.owner);
   }
 
   async presentAccessOptions() {

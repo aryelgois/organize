@@ -8,7 +8,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
 
-    <ion-buttons slot="end">
+    <ion-buttons *ngIf="userIsOwner" slot="end">
       <ion-button (click)="presentAccessOptions()">
         <ion-icon slot="icon-only" name="more"></ion-icon>
       </ion-button>
