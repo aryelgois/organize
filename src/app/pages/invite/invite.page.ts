@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { NavController, ToastController } from '@ionic/angular';
+
 @Component({
   selector: 'app-invite',
   templateUrl: './invite.page.html',
@@ -19,6 +21,8 @@ export class InvitePage implements OnInit {
   });
 
   constructor(
+    private navCtrl: NavController,
+    private toastCtrl: ToastController,
   ) {}
 
   ngOnInit() {
@@ -30,6 +34,19 @@ export class InvitePage implements OnInit {
     }
 
     console.log(this.inviteForm.value);
+
+    this.presentToast({ message: 'Convite enviado' });
+
+    this.navCtrl.back();
+  }
+
+  private async presentToast(options: any) {
+    const toast = await this.toastCtrl.create({
+      duration: 2000,
+      ...options,
+    });
+
+    return toast.present();
   }
 
 }
