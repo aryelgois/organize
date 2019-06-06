@@ -56,7 +56,6 @@ export class ProductsPage implements OnInit {
       queryParams = {
         list: this.list.id,
         product: product.id,
-        name: this.search,
       };
     } else if (isProduct(product)) {
       url = product.id;
