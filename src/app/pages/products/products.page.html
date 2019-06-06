@@ -19,7 +19,7 @@
 </ion-header>
 
 <ion-content>
-  <app-emptystate *ngIf="!hasContent; else showContent">
+  <app-emptystate *ngIf="!hasContent && !search; else showContent">
     Encontre produtos interessantes
 
     <ion-icon slot="top" name="search"></ion-icon>
