@@ -24,7 +24,7 @@ export class AppComponent {
     },
     {
       title: 'Ler código QR',
-      iconSrc: '/assets/icons/qr-scanner.svg',
+      icon: 'qr-scanner',
       url: '/lists/qrscanner',
     },
     {
