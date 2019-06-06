@@ -29,6 +29,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `qr-scanner-corner`
   - From [material.io][material-icons]:
     - `md-anonymous` (account_circle)
+    - `md-link`
+    - `md-link-off`
     - `md-report`
 - Models:
   - `AbstractProduct`

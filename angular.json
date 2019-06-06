@@ -21,8 +21,16 @@
             "tsConfig": "src/tsconfig.app.json",
             "fileReplacements": [
               {
+                "replace": "src/custom-icons/ios-link-off.svg",
+                "with": "node_modules/ionicons/dist/ionicons/svg/ios-remove-circle-outline.svg"
+              },
+              {
                 "replace": "src/custom-icons/ios-report.svg",
                 "with": "node_modules/ionicons/dist/ionicons/svg/ios-alert.svg"
+              },
+              {
+                "replace": "node_modules/ionicons/dist/ionicons/svg/md-link.svg",
+                "with": "src/custom-icons/md-link.svg"
               },
               {
                 "replace": "node_modules/ionicons/dist/ionicons/svg/md-qr-scanner.svg",
