@@ -14,9 +14,7 @@
   <ion-list>
     <ng-container *ngIf="owner; else dummy">
       <ion-item class="owner">
-        <ion-avatar slot="start">
-          <ion-img [src]="owner.person?.image || '/assets/images/dummy-img.png'"></ion-img>
-        </ion-avatar>
+        <app-user-avatar slot="start" [user]="owner"></app-user-avatar>
 
         <ion-label *ngIf="owner.person; else anonymousUser">
           <h2>
@@ -39,9 +37,7 @@
       </ion-item>
 
       <ion-item *ngFor="let user of users">
-        <ion-avatar slot="start">
-          <ion-img [src]="user.person.image || '/assets/images/dummy-img.png'"></ion-img>
-        </ion-avatar>
+        <app-user-avatar slot="start" [user]="user"></app-user-avatar>
 
         <ion-label>
           <h2>

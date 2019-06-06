@@ -38,17 +38,9 @@ ion-footer {
     width: 16px;
   }
 
-  ion-avatar {
-    --size: 40px;
-
+  app-user-avatar {
     flex-shrink: 0;
     margin-right: 8px;
-    height: var(--size);
-    width: var(--size);
-
-    &.ios {
-      --size: 36px;
-    }
   }
 }
 

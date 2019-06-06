@@ -43,9 +43,7 @@
     </ion-list-header>
 
     <ion-item *ngIf="owner; else accessSkeleton" lines="none">
-      <ion-avatar slot="start" class="owner">
-        <ion-img [src]="owner.person?.image || '/assets/images/dummy-img.png'"></ion-img>
-      </ion-avatar>
+      <app-user-avatar slot="start" class="owner" [user]="owner"></app-user-avatar>
 
       <ion-label *ngIf="users.length === 0 && anonymous === 0; else others">
         Só você
@@ -53,9 +51,7 @@
 
       <ng-template #others>
         <div class="others">
-          <ion-avatar *ngFor="let user of users">
-            <ion-img [src]="user.person.image || '/assets/images/dummy-img.png'"></ion-img>
-          </ion-avatar>
+          <app-user-avatar *ngFor="let user of users" class="small" [user]="user"></app-user-avatar>
         </div>
         <ion-avatar *ngIf="anonymous > 0" slot="end" class="anonymous">
           +{{ anonymous }}

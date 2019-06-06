@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
+import { UserAvatarComponentModule } from '../../components/user-avatar/user-avatar.module';
+
 import { ShareListPage } from './share-list.page';
 
 @NgModule({
@@ -13,6 +15,7 @@ import { ShareListPage } from './share-list.page';
     FormsModule,
     IonicModule,
     RouterModule.forChild([{ path: '', component: ShareListPage }]),
+    UserAvatarComponentModule,
   ],
   declarations: [ShareListPage],
 })
