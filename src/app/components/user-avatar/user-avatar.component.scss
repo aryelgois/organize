@@ -1,0 +1,44 @@
+:host {
+  --user-background-color: var(--ion-color-medium);
+  --user-icon-color: var(--ion-color-medium-contrast);
+  --user-icon-size: 2em;
+  --user-avatar-size: 64px;
+
+  &.ios {
+    --user-avatar-size: 48px;
+  }
+
+  &.small,
+  &[slot] {
+    --user-icon-size: 1.5em;
+    --user-avatar-size: 40px;
+
+    &.ios {
+      --user-avatar-size: 36px;
+    }
+  }
+
+  &[slot] {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  &[slot=start] {
+    margin-right: 16px;
+  }
+
+  &[slot=end] {
+    margin-left: 16px;
+  }
+}
+
+ion-avatar {
+  background: var(--user-background-color);
+  color:  var(--user-icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--user-icon-size);
+  height: var(--user-avatar-size);
+  width: var(--user-avatar-size);
+}

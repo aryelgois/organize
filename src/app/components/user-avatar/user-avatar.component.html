@@ -1,0 +1,9 @@
+<ion-avatar *ngIf="user.person?.image; else dummyAvatar">
+  <ion-img [src]="user.person.image" alt=""></ion-img>
+</ion-avatar>
+
+<ng-template #dummyAvatar>
+  <ion-avatar>
+    <ion-icon name="person"></ion-icon>
+  </ion-avatar>
+</ng-template>
