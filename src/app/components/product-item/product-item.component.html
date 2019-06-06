@@ -10,7 +10,7 @@
 
   <ion-label [color]="showChecked && product.isChecked ? 'medium' : ''">
     <h2>
-      {{ product.name || product.abstract.name }}
+      {{ product.name }}
     </h2>
     <p *ngIf="product.store; else productHint">
       <ion-icon name="pin"></ion-icon>
