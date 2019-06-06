@@ -47,7 +47,7 @@
         <ion-img [src]="owner.person?.image || '/assets/images/dummy-img.png'"></ion-img>
       </ion-avatar>
 
-      <ion-label *ngIf="!users || users.length === 0 && anonymous === 0; else others">
+      <ion-label *ngIf="users.length === 0 && anonymous === 0; else others">
         Só você
       </ion-label>
 

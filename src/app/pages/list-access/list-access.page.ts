@@ -10,8 +10,8 @@ import { User } from '../../models/user';
 export class ListAccessPage implements OnInit {
 
   owner: User;
-  users: User[];
-  anonymous: number;
+  users: User[] = [];
+  anonymous = 0;
 
   constructor(
   ) {}
