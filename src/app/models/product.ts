@@ -11,7 +11,7 @@ export interface AbstractProduct {
 export interface Product {
   id: string;
   abstract: AbstractProduct;
-  name: string|null;
+  name: string;
   image: string|null;
   list: List;
   isChecked: boolean;
