@@ -187,7 +187,7 @@
       </ng-container>
 
       <ion-toolbar>
-        <ion-buttons slot="start">
+        <ion-buttons *ngIf="keywords.length > 0" slot="start">
           <ion-button routerLink="keywords">
             Ver tudo
           </ion-button>
