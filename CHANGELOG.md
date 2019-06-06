@@ -23,10 +23,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `NotFoundGuard`
   - `WelcomeGuard`
 - Icons:
+  - `md-anonymous-off`
   - `md-qr-code`
   - `md-qr-scanner`
   - `qr-scanner-corner`
   - From [material.io][material-icons]:
+    - `md-anonymous` (account_circle)
     - `md-report`
 - Models:
   - `AbstractProduct`
