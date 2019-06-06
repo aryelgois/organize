@@ -17,14 +17,14 @@
 </ion-header>
 
 <ion-content>
-  <section class="ion-padding">
+  <section *ngIf="isQrCodeEnabled && code; else isLoading" class="ion-padding">
     <ion-img *ngIf="qrcode; else dummy" class="qrcode" [src]="qrcode" alt=""></ion-img>
 
     <ng-template #dummy>
       <ion-skeleton-text animated></ion-skeleton-text>
     </ng-template>
 
-    <ng-container *ngIf="code">
+    <ng-container>
       <ion-label>
         Problema na leitura?<br>
         Use o código abaixo:
@@ -40,4 +40,27 @@
       </ion-button>
     </ng-container>
   </section>
+
+  <ng-template #isLoading>
+    <div *ngIf="isQrCodeEnabled !== false; else qrCodeIsDisabled" class="spinner">
+      <ion-spinner></ion-spinner>
+    </div>
+  </ng-template>
+
+  <ng-template #qrCodeIsDisabled>
+    <app-emptystate>
+      O código QR está desativado
+
+      <ion-icon slot="top" name="qr-code-off"></ion-icon>
+
+      <div slot="bottom">
+        <p *ngIf="userIsOwner">
+          Você pode reativar acessando as opções.
+        </p>
+        <p *ngIf="!userIsOwner">
+          Peça ao dono da lista para ativar.
+        </p>
+      </div>
+    </app-emptystate>
+  </ng-template>
 </ion-content>

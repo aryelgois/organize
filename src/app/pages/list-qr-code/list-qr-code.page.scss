@@ -14,3 +14,10 @@ ion-skeleton-text {
   height: var(--size);
   width: var(--size)
 }
+
+.spinner {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+}
