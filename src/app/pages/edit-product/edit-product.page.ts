@@ -19,6 +19,8 @@ export class EditProductPage implements OnInit {
 
   product: Product;
 
+  keywords: Keyword[] = [];
+
   amountPattern = '\\d{1,4}([.,]\\d+|)';
   pricePattern = '\\d{1,6}([.,]\\d+|)';
 
@@ -52,8 +54,6 @@ export class EditProductPage implements OnInit {
       Validators.required,
     ]),
   });
-
-  keywords: Keyword[];
 
   constructor(
     private modalCtrl: ModalController,
