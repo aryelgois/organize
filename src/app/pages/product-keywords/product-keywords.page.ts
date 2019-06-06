@@ -66,7 +66,7 @@ export class ProductKeywordsPage implements OnInit {
           }
         : {
             text: 'Denunciar',
-            icon: 'alert',
+            icon: 'report',
             handler: () => this.reportKeyword(keyword),
           },
       {

@@ -21,6 +21,10 @@
             "tsConfig": "src/tsconfig.app.json",
             "fileReplacements": [
               {
+                "replace": "src/custom-icons/ios-report.svg",
+                "with": "node_modules/ionicons/dist/ionicons/svg/ios-alert.svg"
+              },
+              {
                 "replace": "node_modules/ionicons/dist/ionicons/svg/md-qr-scanner.svg",
                 "with": "src/custom-icons/md-qr-scanner.svg"
               }

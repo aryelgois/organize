@@ -26,6 +26,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `md-qr-code`
   - `md-qr-scanner`
   - `qr-scanner-corner`
+  - From [material.io][material-icons]:
+    - `md-report`
 - Models:
   - `AbstractProduct`
   - `Keyword`
@@ -77,3 +79,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [clipboard]: https://www.npmjs.com/package/clipboard
 [qrcode]: https://www.npmjs.com/package/qrcode
+
+[material-icons]: https://material.io/tools/icons
