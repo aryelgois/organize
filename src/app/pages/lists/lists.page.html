@@ -49,9 +49,14 @@
         <h2>
           {{ list.name }}
         </h2>
-        <p>
+        <p *ngIf="list.products.length > 0; else emptyList">
           {{ countChecked(list) }} de {{ list.products.length }}
         </p>
+        <ng-template #emptyList>
+          <p>
+            Lista vazia
+          </p>
+        </ng-template>
       </ion-label>
     </ion-item>
   </ion-list>
