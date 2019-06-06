@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, NavController, ToastController } from '@ionic/angular';
 
 import { Keyword } from '../../models/keyword';
 
@@ -15,6 +15,8 @@ export class ProductKeywordsPage implements OnInit {
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
+    private navCtrl: NavController,
+    private toastCtrl: ToastController,
   ) {}
 
   ngOnInit() {
@@ -60,12 +62,12 @@ export class ProductKeywordsPage implements OnInit {
             text: 'Apagar',
             role: 'destructive',
             icon: 'trash',
-            handler: () => console.log('Apagar'),
+            handler: () => this.deleteKeyword(keyword),
           }
         : {
             text: 'Denunciar',
             icon: 'alert',
-            handler: () => console.log('Denunciar'),
+            handler: () => this.reportKeyword(keyword),
           },
       {
         text: 'Cancelar',
@@ -80,6 +82,38 @@ export class ProductKeywordsPage implements OnInit {
     });
 
     return await actionSheet.present();
+  }
+
+  private deleteKeyword(keyword: Keyword): void {
+    this.presentToast({
+      message: 'Palavra-chave apagada',
+      buttons: [
+        {
+          text: 'Desfazer',
+          handler: () => this.undoDeleteKeyword(keyword),
+        },
+      ],
+    });
+
+    if (this.keywords.length === 0) {
+      this.navCtrl.back();
+    }
+  }
+
+  private undoDeleteKeyword(keyword: Keyword): void {
+  }
+
+  private reportKeyword(keyword: Keyword): void {
+    this.presentToast({ message: 'Não se preocupe, iremos verificar essa palavra'});
+  }
+
+  private async presentToast(options: any) {
+    const toast = await this.toastCtrl.create({
+      duration: 10000,
+      ...options,
+    });
+
+    return toast.present();
   }
 
 }
