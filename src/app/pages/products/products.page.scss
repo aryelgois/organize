@@ -11,6 +11,10 @@ ion-header ion-toolbar {
   }
 }
 
+app-emptystate {
+  --emptystate-p-width: 80vw;
+}
+
 ion-list {
   contain: style;
 }
