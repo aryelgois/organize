@@ -33,12 +33,12 @@
 </ion-content>
 
 <ion-footer>
-  <ion-list class="ion-activatable" routerLink="access">
+  <ion-list *ngIf="owner; else dummy" class="ion-activatable" routerLink="access">
     <ion-list-header>
       Quem pode acessar
     </ion-list-header>
 
-    <ion-item *ngIf="owner; else accessSkeleton" lines="none">
+    <ion-item lines="none">
       <app-user-avatar slot="start" class="owner" [user]="owner"></app-user-avatar>
 
       <ion-label *ngIf="users.length === 0 && anonymous === 0; else others">
@@ -55,14 +55,20 @@
       </ng-template>
     </ion-item>
 
-    <ng-template #accessSkeleton>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-list>
+
+  <ng-template #dummy>
+    <ion-list>
+      <ion-list-header>
+        Quem pode acessar
+      </ion-list-header>
+
       <ion-item lines="none">
         <ion-avatar slot="start" class="owner">
           <ion-skeleton-text animated></ion-skeleton-text>
         </ion-avatar>
       </ion-item>
-    </ng-template>
-
-    <ion-ripple-effect></ion-ripple-effect>
-  </ion-list>
+    </ion-list>
+  </ng-template>
 </ion-footer>
