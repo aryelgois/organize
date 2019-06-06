@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { NavController, ToastController } from '@ionic/angular';
+
 @Component({
   selector: 'app-join',
   templateUrl: './join.page.html',
@@ -24,6 +26,8 @@ export class JoinPage implements OnInit {
   });
 
   constructor(
+    private navCtrl: NavController,
+    private toastCtrl: ToastController,
   ) {}
 
   ngOnInit() {
@@ -35,6 +39,21 @@ export class JoinPage implements OnInit {
     }
 
     console.log(this.joinForm.value);
+
+    this.presentToast({ message: 'Enviamos um email de confirmação, confira sua caixa de entrada' });
+
+    this.navCtrl.navigateRoot(['/lists']);
+  }
+
+  private async presentToast(options: any) {
+    const toast = await this.toastCtrl.create({
+      duration: 10000,
+      closeButtonText: 'Entendi',
+      showCloseButton: true,
+      ...options,
+    });
+
+    return toast.present();
   }
 
 }
