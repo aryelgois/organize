@@ -18,7 +18,7 @@ export class AboutPage implements OnInit {
       url: '/welcome',
     },
     {
-      title: 'Termos de serviço',
+      title: 'Termos de uso',
       icon: 'paper',
       url: 'terms',
     },
