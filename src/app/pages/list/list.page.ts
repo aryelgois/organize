@@ -56,7 +56,7 @@ export class ListPage implements OnInit {
         handler: () => this.navigate(['share']),
       },
       {
-        text: 'Duplicar',
+        text: 'Fazer uma cópia',
         icon: 'copy',
         handler: () => console.log('Duplicar'),
       },
