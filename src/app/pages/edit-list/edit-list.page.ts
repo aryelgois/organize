@@ -16,6 +16,7 @@ export class EditListPage implements OnInit {
   @ViewChild('fileInput')
   fileInput: ElementRef;
 
+  duplicate: boolean;
   isFirst: boolean;
 
   list: List;
@@ -27,6 +28,12 @@ export class EditListPage implements OnInit {
     ]),
     image: new FormControl(),
   });
+
+  get title() {
+    return (this.list)
+      ? (this.duplicate ? 'Copiar ' + this.list.name : 'Editar lista')
+      : (this.isFirst ? 'Primeira lista' : 'Nova lista');
+  }
 
   constructor(
     private modalCtrl: ModalController,
