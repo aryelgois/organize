@@ -1,6 +1,10 @@
 ion-item.product {
   &.checked {
     --ion-background-color: var(--ion-color-light-tint);
+
+    ion-img {
+      filter: grayscale(100%);
+    }
   }
 }
 
