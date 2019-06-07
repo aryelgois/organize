@@ -5,6 +5,10 @@
 // file can hold Sass mixins, functions, and placeholder classes to be imported
 // and used throughout the application.
 
+ion-fab-button {
+  outline: none;
+}
+
 ion-label > h2 {
   overflow: hidden;
   text-overflow: ellipsis;
