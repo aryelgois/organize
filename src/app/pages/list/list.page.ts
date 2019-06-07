@@ -58,7 +58,9 @@ export class ListPage implements OnInit {
       {
         text: 'Fazer uma cópia',
         icon: 'copy',
-        handler: () => console.log('Duplicar'),
+        handler: () => this.router.navigate(['/lists/new'], {
+          queryParams: { list: this.list.id },
+        }),
       },
       {
         text: 'Apagar',
