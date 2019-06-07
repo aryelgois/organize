@@ -5,6 +5,7 @@ import { ActionSheetController } from '@ionic/angular';
 
 import { List } from '../../models/list';
 import { Product } from '../../models/product';
+import { isSameUser, User } from '../../models/user';
 
 @Component({
   selector: 'app-list',
@@ -14,6 +15,8 @@ import { Product } from '../../models/product';
 export class ListPage implements OnInit {
 
   list: List;
+
+  user: User;
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
@@ -62,12 +65,19 @@ export class ListPage implements OnInit {
           queryParams: { list: this.list.id },
         }),
       },
-      {
-        text: 'Apagar',
-        role: 'destructive',
-        icon: 'trash',
-        handler: () => console.log('Apagar'),
-      },
+      isSameUser(this.user, this.list.owner)
+        ? {
+            text: 'Apagar',
+            role: 'destructive',
+            icon: 'trash',
+            handler: () => this.deleteList(),
+          }
+        : {
+            text: 'Remover lista compartilhada',
+            role: 'destructive',
+            icon: 'trash',
+            handler: () => this.unlinkList(),
+          },
       {
         text: 'Cancelar',
         icon: 'close',
@@ -85,6 +95,12 @@ export class ListPage implements OnInit {
 
   private navigate(url: any[]) {
     return this.router.navigate(url, { relativeTo: this.route });
+  }
+
+  private deleteList() {
+  }
+
+  private unlinkList() {
   }
 
 }
