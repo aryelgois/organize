@@ -28,6 +28,20 @@
     </ion-refresher>
 
     <ng-container *ngIf="list.products.length > 0; else emptystate">
+      <ion-card *ngIf="!swipeTutorial">
+        <ion-card-content>
+          Você pode marcar os produtos que já adquiriu deslizando para o lado.
+        </ion-card-content>
+
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button color="primary" (click)="confirmSwipeTutorial()">
+              Entendi
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-card>
+
       <ion-list>
         <ion-item-sliding *ngFor="let product of list.products">
           <app-product-item

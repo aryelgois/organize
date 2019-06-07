@@ -18,6 +18,8 @@ export class ListPage implements OnInit {
 
   user: User;
 
+  swipeTutorial: boolean;
+
   constructor(
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl: AlertController,
@@ -26,6 +28,7 @@ export class ListPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.swipeTutorial = localStorage.getItem('swipeTutorial') === 'true';
   }
 
   swipeProduct(product: Product): void {
@@ -45,6 +48,11 @@ export class ListPage implements OnInit {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
+  }
+
+  confirmSwipeTutorial() {
+    localStorage.setItem('swipeTutorial', 'true');
+    this.swipeTutorial = true;
   }
 
   async presentListOptions() {
