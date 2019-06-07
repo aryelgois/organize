@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 
 import { List } from '../../models/list';
 import { Product } from '../../models/product';
@@ -20,6 +20,7 @@ export class ListPage implements OnInit {
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
+    private alertCtrl: AlertController,
     private route: ActivatedRoute,
     private router: Router,
   ) {}
@@ -70,13 +71,13 @@ export class ListPage implements OnInit {
             text: 'Apagar',
             role: 'destructive',
             icon: 'trash',
-            handler: () => this.deleteList(),
+            handler: () => { this.deleteList(); },
           }
         : {
             text: 'Remover lista compartilhada',
             role: 'destructive',
             icon: 'trash',
-            handler: () => this.unlinkList(),
+            handler: () => { this.unlinkList(); },
           },
       {
         text: 'Cancelar',
@@ -97,10 +98,44 @@ export class ListPage implements OnInit {
     return this.router.navigate(url, { relativeTo: this.route });
   }
 
-  private deleteList() {
+  private async deleteList() {
+    const alert = await this.alertCtrl.create({
+      header: 'Você tem certeza?',
+      subHeader: 'Apagar ' + this.list.name,
+      message: 'Essa ação não poderá ser desfeita.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+        {
+          text: 'Apagar',
+          handler: () => console.log('Apagar'),
+        },
+      ],
+    });
+
+    return await alert.present();
   }
 
-  private unlinkList() {
+  private async unlinkList() {
+    const alert = await this.alertCtrl.create({
+      header: 'Você tem certeza?',
+      subHeader: 'Remover ' + this.list.name,
+      message: 'Você perderá o acesso a essa lista.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+        {
+          text: 'Remover',
+          handler: () => console.log('Remover'),
+        },
+      ],
+    });
+
+    return await alert.present();
   }
 
 }
