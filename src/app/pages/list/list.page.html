@@ -22,76 +22,75 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher
-    *ngIf="list"
-    slot="fixed"
-    (ionRefresh)="doRefresh($event)"
-  >
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+  <ng-container *ngIf="list; else dummy">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
 
-  <app-emptystate *ngIf="list && list.products.length === 0">
-    Sua lista está vazia
+    <ng-container *ngIf="list.products.length > 0; else emptystate">
+      <ion-list>
+        <ion-item-sliding *ngFor="let product of list.products">
+          <app-product-item
+            [button]="true"
+            [product]="product"
+            [routerLink]="['/products', product.id]"
+            [showChecked]="true"
+            [showDetails]="true"
+          ></app-product-item>
+          <ion-item-options
+            *ngFor="let side of ['start', 'end']" [side]="side"
+            (ionSwipe)="swipeProduct(product)"
+          ></ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ng-container>
 
-    <ion-icon slot="top" name="basket"></ion-icon>
+    <ng-template #emptystate>
+      <app-emptystate>
+        Sua lista está vazia
 
-    <div slot="bottom">
-      <p>
-        Os produtos adicionados aparecerão aqui.
-      </p>
-    </div>
-  </app-emptystate>
+        <ion-icon slot="top" name="basket"></ion-icon>
 
-  <ion-list *ngIf="list && list.products.length > 0">
-    <ion-item-sliding *ngFor="let product of list.products">
-      <app-product-item
-        [product]="product"
-        [routerLink]="['/products', product.id]"
-        [button]="true"
-        [showChecked]="true"
-        [showDetails]="true"
-      ></app-product-item>
-      <ion-item-options
-        *ngFor="let side of ['start', 'end']" [side]="side"
-        (ionSwipe)="swipeProduct(product)"
-      ></ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-
-  <ion-list *ngIf="!list">
-    <ion-item *ngFor="let dummy of ' '.repeat(10).split('')">
-      <ion-avatar slot="start">
-        <ion-skeleton-text animated></ion-skeleton-text>
-      </ion-avatar>
-      <ion-label>
-        <h2>
-          <ion-skeleton-text animated width="60%"></ion-skeleton-text>
-        </h2>
-        <p>
-          <ion-skeleton-text animated width="40%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-note slot="end">
-        <div>
-          <ion-skeleton-text animated width="2em"></ion-skeleton-text>
+        <div slot="bottom">
+          <p>
+            Os produtos adicionados aparecerão aqui.
+          </p>
         </div>
-        <div>
-          <ion-skeleton-text animated width="4em"></ion-skeleton-text>
-        </div>
-      </ion-note>
-    </ion-item>
-  </ion-list>
+      </app-emptystate>
 
-  <ion-fab
-    *ngIf="list && list.products.length === 0"
-    vertical="bottom"
-    horizontal="end"
-    slot="fixed"
-  >
-    <ion-fab-button routerLink="/products" [queryParams]="{ list: list.id }">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+      <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button routerLink="/products" [queryParams]="{ list: list.id }">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ng-template>
+  </ng-container>
+
+  <ng-template #dummy>
+    <ion-list>
+      <ion-item *ngFor="let dummy of ' '.repeat(10).split('')">
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h2>
+            <ion-skeleton-text animated width="60%"></ion-skeleton-text>
+          </h2>
+          <p>
+            <ion-skeleton-text animated width="40%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+        <ion-note slot="end">
+          <div>
+            <ion-skeleton-text animated width="2em"></ion-skeleton-text>
+          </div>
+          <div>
+            <ion-skeleton-text animated width="4em"></ion-skeleton-text>
+          </div>
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </ng-template>
 </ion-content>
 
 <ion-footer *ngIf="list && list.products.length > 0">
@@ -101,7 +100,7 @@
     </ion-label>
   </ion-toolbar>
 
-  <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+  <ion-fab vertical="top" horizontal="end" edge>
     <ion-fab-button routerLink="/products" [queryParams]="{ list: list.id }">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
